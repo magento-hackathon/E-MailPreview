@@ -1,30 +1,27 @@
 <?xml version="1.0"?>
 <config>
-    <modules>
-        <Hackathon_EmailPreview>
-            <version>1.0.0</version>
-        </Hackathon_EmailPreview>
-    </modules>
-    <global>
-        <blocks>
-            <hackathon_emailpreview>
-                <class>Hackathon_EmailPreview_Block</class>
-            </hackathon_emailpreview>
-            <hackathon_emailpreview_adminhtml>
-                <class>Hackathon_EmailPreview_Block_Adminhtml</class>
-            </hackathon_emailpreview_adminhtml>
-        </blocks>
-        <models>
-            <hackathon_emailpreview>
-                <class>Hackathon_EmailPreview_Model</class>
-            </hackathon_emailpreview>
-        </models>
-        <helpers>
-            <hackathon_emailpreview>
-                <class>Hackathon_EmailPreview_Helper</class>
-            </hackathon_emailpreview>
-        </helpers>
-        <!--
+  <modules>
+    <Hackathon_EmailPreview>
+      <version>1.0.0</version>
+    </Hackathon_EmailPreview>
+  </modules>
+  <global>
+    <blocks>
+      <hackathon_emailpreview>
+        <class>Hackathon_EmailPreview_Block</class>
+      </hackathon_emailpreview>
+    </blocks>
+    <models>
+      <hackathon_emailpreview>
+        <class>Hackathon_EmailPreview_Model</class>
+      </hackathon_emailpreview>
+    </models>
+    <helpers>
+      <hackathon_emailpreview>
+        <class>Hackathon_EmailPreview_Helper</class>
+      </hackathon_emailpreview>
+    </helpers>
+    <!--
         <resources>
             <hackathon_emailpreview_setup>
                 <setup>
@@ -32,22 +29,10 @@
                 </setup>
             </hackathon_emailpreview_setup>
         </resources>
-        -->
-        <!--
-        <events>
-            <catalog_product_load_after>
-                <observers>
-                    <hackathon_emailpreview>
-                        <class>hackathon_emailpreview/observer</class>
-                        <method>catalogProductLoadAfter</method>
-                    </hackathon_emailpreview>
-                </observers>
-            </catalog_product_load_after>
-        </events>
-        -->
-    </global>
-    <frontend>
-        <!--
+     -->
+  </global>
+  <frontend>
+    <!--
         <routers>
            <hackathon_emailpreview>
                <use>standard</use>
@@ -58,28 +43,35 @@
            </hackathon_emailpreview>
         </routers>
         -->
-        <layout>
-            <updates>
-                <hackathon_emailpreview>
-                    <file>hackathon_emailpreview.xml</file>
-                </hackathon_emailpreview>
-            </updates>
-        </layout>
-    </frontend>
-    <!--
-    <admin>
-        <routers>
-            <adminhtml>
-                <args>
-                    <modules>
-                        <Hackathon_EmailPreview before="Mage_Adminhtml">Hackathon_EmailPreview_Adminhtml</Hackathon_EmailPreview>
-                    </modules>
-                </args>
-            </adminhtml>
-        </routers>
-    </admin>
-    -->
-    <!--
+    <layout>
+      <updates>
+        <hackathon_emailpreview>
+          <file>hackathon_emailpreview.xml</file>
+        </hackathon_emailpreview>
+      </updates>
+    </layout>
+  </frontend>
+  <adminhtml>
+    <layout>
+      <updates>
+        <hackathon_emailpreview>
+          <file>hackathon_emailpreview.xml</file>
+        </hackathon_emailpreview>
+      </updates>
+    </layout>
+  </adminhtml>
+  <admin>
+    <routers>
+      <adminhtml>
+        <args>
+          <modules>
+            <Hackathon_EmailPreview before="Mage_Adminhtml">Hackathon_EmailPreview_Adminhtml</Hackathon_EmailPreview>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
+  <!--
     <crontab>
         <jobs>
             <hackathon_emailpreview_cron>
