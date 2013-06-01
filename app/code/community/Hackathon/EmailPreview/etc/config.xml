@@ -74,6 +74,17 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+    	<translate>
+            <modules>
+                <hackathon_emailpreview>
+                    <files>
+                        <default>Hackathon_EmailPreview/Hackathon_EmailPreview.csv</default>
+                    </files>
+                </hackathon_emailpreview>
+            </modules>
+        </translate>
+    </adminhtml>
     <!--
     <admin>
         <routers>

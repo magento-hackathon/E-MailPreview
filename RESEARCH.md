@@ -29,7 +29,7 @@ Research notes for the implementation of this extension.
 ### Forgot Admin Password
 
 
-### Forgot Password
+### DONE: Forgot Password
 * Template file: account_password_reset_confirmation.html
 * Template type: html
 * Method: Mage_Customer_Model_Customer::sendPasswordResetConfirmationEmail()
@@ -92,7 +92,7 @@ Shouldn't be a problem, just provide the customer object.
 
 * Same as New Invoice, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
-### New Order
+### DONE: New Order
 
 * Used in model sales/order in method sendNewOrderEmail()
 * Variables:
@@ -125,7 +125,7 @@ Shouldn't be a problem, just provide the customer object.
 
 * Same as New Shipment, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
-### New account
+### DONE: New account
 * Template file: account_new.html
 * Template type: html
 * Method: Mage_Customer_Model_Customer::sendNewAccountEmail()
@@ -134,7 +134,7 @@ Shouldn't be a problem, just provide the customer object.
   - backUrl (String, default '')
 Shouldn't be a problem, just provide the customer object.  
 
-### New account confirmation key
+### DONE: New account confirmation key
 * Template file: account_new_confirmation.html
 * Template type: html
 * Method: Mage_Customer_Model_Customer::sendNewAccountEmail()
@@ -143,7 +143,7 @@ Shouldn't be a problem, just provide the customer object.
   - backUrl (String, default '')
 Shouldn't be a problem, just provide the customer object.  
 
-### New account confirmed
+### DONE: New account confirmed
 * Template file: account_new_confirmed.html
 * Template type: html
 * Method: Mage_Customer_Model_Customer::sendNewAccountEmail()
@@ -209,7 +209,7 @@ Shouldn't be a problem, just provide the customer object.
 ### Product stock alert
 
 
-### Remind Password
+### DONE: Remind Password
 * Template file: password_new.html
 * Template type: html
 * Method: Mage_Customer_Model_Customer::sendPasswordReminderEmail()
