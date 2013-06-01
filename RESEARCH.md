@@ -7,7 +7,7 @@ Research notes for the implementation of this extension.
 ### Contact Form
 
 
-### Credit Memo Update
+### DONE: Credit Memo Update
 
 * Used in model sales/order_creditmemo in method sendUpdateEmail($notifyCustomer = true, $comment = '')
 * Variables:
@@ -19,7 +19,7 @@ Research notes for the implementation of this extension.
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
 
-### Credit Memo Update for Guest
+### DONE: Credit Memo Update for Guest
 
 * Same as Credit Memo Update, method selects template depending on $order->getCustomerIsGuest()
 
@@ -37,7 +37,7 @@ Research notes for the implementation of this extension.
   - customer (Mage_Customer_Model_Customer)
 Shouldn't be a problem, just provide the customer object.  
 
-### Invoice Update
+### DONE: Invoice Update
 
 * Used in model sales/order_invoice in method sendUpdateEmail($notifyCustomer = true, $comment = '')
 * Variables:
@@ -48,7 +48,7 @@ Shouldn't be a problem, just provide the customer object.
 * Special:
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
-### Invoice Update for Guest
+### DONE: Invoice Update for Guest
 
 * Same as Invoice update, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
@@ -58,7 +58,7 @@ Shouldn't be a problem, just provide the customer object.
 ### Moneybookers activate email
 
 
-### New Credit Memo
+### DONE: New Credit Memo
 
 * Used in model sales/order_creditmemo in method sendEmail($notifyCustomer = true, $comment = '')
 * Variables:
@@ -71,11 +71,11 @@ Shouldn't be a problem, just provide the customer object.
     * The payment block is generated in the method using the store emulation
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
-### New Credit Memo for Guest
+### DONE: New Credit Memo for Guest
 
 * Same as New Credit Memo, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
-### New Invoice
+### DONE: New Invoice
 
 * Used in model sales/order_invoice in method sendEmail($notifyCustomer = true, $comment = '')
 * Variables:
@@ -88,7 +88,7 @@ Shouldn't be a problem, just provide the customer object.
     * The payment block is generated in the method using the store emulation
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
-### New Invoice for Guest
+### DONE: New Invoice for Guest
 
 * Same as New Invoice, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
@@ -104,11 +104,11 @@ Shouldn't be a problem, just provide the customer object.
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
 
-### New Order for Guest
+### DONE: New Order for Guest
 
 * Same as New Order, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
-### New Shipment
+### DONE: New Shipment
 
 * Used in model sales/order_shipment in method sendEmail($notifyCustomer = true, $comment = '')
 * Variables:
@@ -121,7 +121,7 @@ Shouldn't be a problem, just provide the customer object.
     * The payment block is generated in the method using the store emulation
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
-### New Shipment for Guest
+### DONE: New Shipment for Guest
 
 * Same as New Shipment, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
@@ -182,7 +182,7 @@ Shouldn't be a problem, just provide the customer object.
   - inline translation disabled while sending mail
   - does getProcessedTemplate() get called at all?
 
-### Order Update
+### DONE: Order Update
 
 * Used in model sales/order in method sendOrderUpdateEmail($notifyCustomer = true, $comment = '')
 * Variables:
@@ -192,7 +192,7 @@ Shouldn't be a problem, just provide the customer object.
 * Special:
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
-### Order Update for Guest
+### DONE: Order Update for Guest
 
 * Same as Order Update, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
@@ -223,7 +223,7 @@ Shouldn't be a problem, just provide the customer object.
 ### Share Wishlist
 
 
-### Shipment Update
+### DONE: Shipment Update
 
 * Used in model sales/order_shipment in method sendUpdateEmail($notifyCustomer = true, $comment = '')
 * Variables:
@@ -234,7 +234,7 @@ Shouldn't be a problem, just provide the customer object.
 * Special:
     * In method, customer email address is retrieved from order: $order->getCustomerEmail()
 
-### Shipment Update for Guest
+### DONE: Shipment Update for Guest
 
 * Same as Shipment Update, the method checks whether customer is guest by $order->getCustomerIsGuest()
 

@@ -63,6 +63,10 @@ Matthias Zeis
 [http://www.matthias-zeis.com](http://www.matthias-zeis.com)  
 [@mzeis](https://twitter.com/mzeis)
 
+Marc Päpper
+[http://www.lemundo.de](http://www.lemundo.de)
+[@mpaepper](https://twitter.com/mpaepper)
+
 License
 -------
 [OSL - Open Software Licence 3.0](http://opensource.org/licenses/osl-3.0.php)
