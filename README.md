@@ -12,6 +12,25 @@ Description
 -----------
 This extension enables the merchants and developers to preview mail templates from the backend with real data.
 
+Extending
+---------
+
+### Extending existing mail templates
+If you introduce new variables into existing mail templates, you have to provide Magento with actual models (ie. orders, customers, ...). 
+
+You can do so by observing the `hackathon_emailpreview_render_email_before` event. You will be provided with:
+
+* `templateType`. Use the template type to decide if you have to modify the parameters for this type of template.
+* `templateParams`. This `Varien_Object` contains the parameters (ie. variables like orders, customers, ...) that will be passed to the mail template renderer.
+
+Adding a customer with real data as a template parameter looks like this:
+
+    $templateParams = $observer->getEvent()->getData('templateParams');
+    $requestParams = $templateParams->getRequestParams();
+    $customerId = $requestParams['customerId'];
+    $customer = Mage::getModel('customer/customer')->load($customerId);
+    $templateParams->setCustomer($customer);
+
 Requirements
 ------------
 - PHP >= 5.2.0
