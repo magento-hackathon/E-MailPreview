@@ -152,7 +152,7 @@ Shouldn't be a problem, just provide the customer object.
   - backUrl (String, default '')
 Shouldn't be a problem, just provide the customer object.  
 
-### Newsletter subscription confirmation
+### DONE:Newsletter subscription confirmation
 * Template file: newsletter_subscr_confirm.html
 * Template type: html
 * Method: Mage_Newsletter_Model_Subscriber::sendConfirmationRequestEmail()
@@ -162,7 +162,7 @@ Shouldn't be a problem, just provide the customer object.
   - inline translation disabled while sending mail
   - does getProcessedTemplate() get called at all?
 
-### Newsletter subscription success
+### DONE:Newsletter subscription success
 * Template file: newsletter_subscr_success.html
 * Template type: html
 * Method: Mage_Newsletter_Model_Subscriber::sendConfirmationSuccessEmail()
@@ -172,7 +172,7 @@ Shouldn't be a problem, just provide the customer object.
   - inline translation disabled while sending mail
   - does getProcessedTemplate() get called at all?  
 
-### Newsletter unsubscription success
+### DONE:Newsletter unsubscription success
 * Template file: newsletter_unsub_success.html
 * Template type: html
 * Method: Mage_Newsletter_Model_Subscriber::sendUnsubscriptionEmail()
