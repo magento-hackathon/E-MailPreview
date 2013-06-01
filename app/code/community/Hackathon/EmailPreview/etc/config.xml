@@ -36,6 +36,10 @@
         <events>
             <hackathon_emailpreview_render_email_before>
                 <observers>
+                    <hackathon_emailpreview_sendfriend_email>
+                        <class>hackathon_emailpreview/mail_type_sendfriend</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sendfriend_email>
                     <hackathon_emailpreview_newsletter_email>
                         <class>hackathon_emailpreview/mail_type_newsletter</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
