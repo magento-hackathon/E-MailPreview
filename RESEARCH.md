@@ -241,5 +241,13 @@ Shouldn't be a problem, just provide the customer object.
 ### Sitemap generate Warnings
 
 
-### Token Status Change
-
+### DONE: Token Status Change
+* Template file: token.html
+* Template type: html
+* Method: Mage_Oauth_Helper_Data::sendNotificationOnTokenStatusChange()
+* Template params:
+    * 'name'            => $userName        // @var string
+    * 'userName'        => $userName        // @var string
+    * 'email'           => $userEmail       // @var string
+    * 'applicationName' => $applicationName // @var string
+    * 'status'          => $status          // @var string
