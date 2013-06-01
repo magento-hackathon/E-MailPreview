@@ -36,10 +36,22 @@
         <events>
             <hackathon_emailpreview_render_email_before>
                 <observers>
-                    <hackathon_emailpreview_order_email>
-                        <class>hackathon_emailpreview/mail_type_orderEmail</class>
+                    <hackathon_emailpreview_sales_order_email>
+                        <class>hackathon_emailpreview/mail_type_sales_orderEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
-                    </hackathon_emailpreview_order_email>
+                    </hackathon_emailpreview_sales_order_email>
+                    <hackathon_emailpreview_sales_invoice_email>
+                        <class>hackathon_emailpreview/mail_type_sales_invoiceEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sales_invoice_email>
+                    <hackathon_emailpreview_sales_creditmemo_email>
+                        <class>hackathon_emailpreview/mail_type_sales_creditmemoEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sales_creditmemo_email>
+                    <hackathon_emailpreview_sales_shipment_email>
+                        <class>hackathon_emailpreview/mail_type_sales_shipmentEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sales_shipment_email>
                 </observers>
             </hackathon_emailpreview_render_email_before>
         </events>
