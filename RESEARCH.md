@@ -228,7 +228,18 @@ Shouldn't be a problem, just provide the customer object.
   * customer (Mage_Customer_Model_Customer)
 Shouldn't be a problem, just provide the customer object. 
 
-### Send product to a friend
+### DONE: Send product to a friend
+
+* Used in model sendfriend/sendfriend in method send()
+* Variables:
+    * 'name'          => $name
+    * 'email'         => $email
+    * 'product_name'  => $this->getProduct()->getName()
+    * 'product_url'   => $this->getProduct()->getUrlInStore()
+    * 'message'       => $message
+    * 'sender_name'   => $sender['name']
+    * 'sender_email'  => $sender['email']
+    * 'product_image' => Mage::helper('catalog/image')->init($this->getProduct(), 'small_image')->resize(75)
 
 
 ### DONE: Share Wishlist

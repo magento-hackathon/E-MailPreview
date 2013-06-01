@@ -1,30 +1,27 @@
 <?xml version="1.0"?>
 <config>
-    <modules>
-        <Hackathon_EmailPreview>
-            <version>1.0.0</version>
-        </Hackathon_EmailPreview>
-    </modules>
-    <global>
-        <blocks>
-            <hackathon_emailpreview>
-                <class>Hackathon_EmailPreview_Block</class>
-            </hackathon_emailpreview>
-            <hackathon_emailpreview_adminhtml>
-                <class>Hackathon_EmailPreview_Block_Adminhtml</class>
-            </hackathon_emailpreview_adminhtml>
-        </blocks>
-        <models>
-            <hackathon_emailpreview>
-                <class>Hackathon_EmailPreview_Model</class>
-            </hackathon_emailpreview>
-        </models>
-        <helpers>
-            <hackathon_emailpreview>
-                <class>Hackathon_EmailPreview_Helper</class>
-            </hackathon_emailpreview>
-        </helpers>
-        <!--
+  <modules>
+    <Hackathon_EmailPreview>
+      <version>1.0.0</version>
+    </Hackathon_EmailPreview>
+  </modules>
+  <global>
+    <blocks>
+      <hackathon_emailpreview>
+        <class>Hackathon_EmailPreview_Block</class>
+      </hackathon_emailpreview>
+    </blocks>
+    <models>
+      <hackathon_emailpreview>
+        <class>Hackathon_EmailPreview_Model</class>
+      </hackathon_emailpreview>
+    </models>
+    <helpers>
+      <hackathon_emailpreview>
+        <class>Hackathon_EmailPreview_Helper</class>
+      </hackathon_emailpreview>
+    </helpers>
+    <!--
         <resources>
             <hackathon_emailpreview_setup>
                 <setup>
@@ -36,6 +33,10 @@
         <events>
             <hackathon_emailpreview_render_email_before>
                 <observers>
+                    <hackathon_emailpreview_sendfriend_email>
+                        <class>hackathon_emailpreview/mail_type_sendfriend</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sendfriend_email>
                     <hackathon_emailpreview_newsletter_email>
                         <class>hackathon_emailpreview/mail_type_newsletter</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
@@ -117,7 +118,6 @@
             </modules>
         </translate>
     </adminhtml>
-    <!--
     <admin>
         <routers>
             <adminhtml>
@@ -129,7 +129,6 @@
             </adminhtml>
         </routers>
     </admin>
-    -->
     <!--
     <crontab>
         <jobs>

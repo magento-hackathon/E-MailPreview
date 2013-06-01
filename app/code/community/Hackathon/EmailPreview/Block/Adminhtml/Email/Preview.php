@@ -1,15 +1,15 @@
 <?php
 
 class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
-    extends Mage_Adminhtml_Block_System_Email_Template_Edit
+    extends Mage_Adminhtml_Block_Widget_Form
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
 
     public function __construct()
     {
         parent::__construct();
-
-        $this->setTemplate('hackathon/test.phtml');
+        //$this->setId("");
+        $this->setTemplate('hackathon/foo.phtml');
     }
 
     public function getTabLabel()
@@ -30,6 +30,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
     public function isHidden()
     {
         return false;
+    }
+
+    protected function _beforeToHtml()
+    {
+
     }
 
 }
