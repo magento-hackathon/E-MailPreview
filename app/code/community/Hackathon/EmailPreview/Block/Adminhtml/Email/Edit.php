@@ -5,6 +5,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Edit
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function getTabLabel()
     {
         return $this->helper("hackathon_emailpreview")->__("Edit Email");
