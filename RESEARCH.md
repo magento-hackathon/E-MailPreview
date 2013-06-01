@@ -22,6 +22,10 @@ Research notes for the implementation of this extension.
 ### Forgot Password
 * Template file: account_password_reset_confirmation.html
 * Template type: html
+* Method: Mage_Customer_Model_Customer::sendPasswordResetConfirmationEmail()
+* Template params:
+  - customer (Mage_Customer_Model_Customer)
+Shouldn't be a problem, just provide the customer object.  
 
 ### Invoice Update
 
@@ -116,6 +120,10 @@ Shouldn't be a problem, just provide the customer object.
 ### Remind Password
 * Template file: password_new.html
 * Template type: html
+* Method: Mage_Customer_Model_Customer::sendPasswordReminderEmail()
+* Template params:
+  - customer (Mage_Customer_Model_Customer)
+Shouldn't be a problem, just provide the customer object. 
 
 ### Send product to a friend
 
