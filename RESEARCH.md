@@ -91,13 +91,34 @@ Shouldn't be a problem, just provide the customer object.
 Shouldn't be a problem, just provide the customer object.  
 
 ### Newsletter subscription confirmation
-
+* Template file: newsletter_subscr_confirm.html
+* Template type: html
+* Method: Mage_Newsletter_Model_Subscriber::sendConfirmationRequestEmail()
+* Template params:
+  - subscriber (Mage_Newsletter_Model_Subscriber)
+* Notes:
+  - inline translation disabled while sending mail
+  - does getProcessedTemplate() get called at all?
 
 ### Newsletter subscription success
-
+* Template file: newsletter_subscr_success.html
+* Template type: html
+* Method: Mage_Newsletter_Model_Subscriber::sendConfirmationSuccessEmail()
+* Template params:
+  - subscriber (Mage_Newsletter_Model_Subscriber)
+* Notes:
+  - inline translation disabled while sending mail
+  - does getProcessedTemplate() get called at all?  
 
 ### Newsletter unsubscription success
-
+* Template file: newsletter_unsub_success.html
+* Template type: html
+* Method: Mage_Newsletter_Model_Subscriber::sendUnsubscriptionEmail()
+* Template params:
+  - subscriber (Mage_Newsletter_Model_Subscriber)
+* Notes:
+  - inline translation disabled while sending mail
+  - does getProcessedTemplate() get called at all?
 
 ### Order Update
 
