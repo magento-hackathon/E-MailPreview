@@ -40,6 +40,10 @@
                         <class>hackathon_emailpreview/mail_type_orderEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_order_email>
+                    <hackathon_emailpreview_password_email>
+                        <class>hackathon_emailpreview/mail_type_Password</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_password_email>
                 </observers>
             </hackathon_emailpreview_render_email_before>
         </events>
@@ -62,6 +66,17 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+    	<translate>
+            <modules>
+                <hackathon_emailpreview>
+                    <files>
+                        <default>Hackathon_EmailPreview/Hackathon_EmailPreview.csv</default>
+                    </files>
+                </hackathon_emailpreview>
+            </modules>
+        </translate>
+    </adminhtml>
     <!--
     <admin>
         <routers>
