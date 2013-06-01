@@ -29,49 +29,95 @@
                 </setup>
             </hackathon_emailpreview_setup>
         </resources>
-     -->
-  </global>
-  <frontend>
-    <!--
+        -->
+        <events>
+            <hackathon_emailpreview_render_email_before>
+                <observers>
+                    <hackathon_emailpreview_newsletter_email>
+                        <class>hackathon_emailpreview/mail_type_newsletter</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_newsletter_email>
+                    <hackathon_emailpreview_sales_order_email>
+                        <class>hackathon_emailpreview/mail_type_sales_orderEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sales_order_email>
+                    <hackathon_emailpreview_sales_invoice_email>
+                        <class>hackathon_emailpreview/mail_type_sales_invoiceEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sales_invoice_email>
+                    <hackathon_emailpreview_sales_creditmemo_email>
+                        <class>hackathon_emailpreview/mail_type_sales_creditmemoEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sales_creditmemo_email>
+                    <hackathon_emailpreview_sales_shipment_email>
+                        <class>hackathon_emailpreview/mail_type_sales_shipmentEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sales_shipment_email>
+                    <hackathon_emailpreview_password_email>
+                        <class>hackathon_emailpreview/mail_type_passwordEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_password_email>
+                    <hackathon_emailpreview_account_email>
+                        <class>hackathon_emailpreview/mail_type_accountEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_account_email>
+                    <hackathon_emailpreview_token_status_change_email>
+                        <class>hackathon_emailpreview/mail_type_tokenStatusChangeEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_token_status_change_email>
+                    <hackathon_emailpreview_sitemap_generate_warnings_email>
+                        <class>hackathon_emailpreview/mail_type_sitemapGenerateWarningsEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_sitemap_generate_warnings_email>
+                    <hackathon_emailpreview_share_wishlist_email>
+                        <class>hackathon_emailpreview/mail_type_shareWishlistEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_share_wishlist_email>
+                </observers>
+            </hackathon_emailpreview_render_email_before>
+        </events>
+    </global>
+    <frontend>
         <routers>
            <hackathon_emailpreview>
                <use>standard</use>
                <args>
                    <module>Hackathon_EmailPreview</module>
-                   <frontName>mgt</frontName>
+                   <frontName>emailpreview</frontName>
                </args>
            </hackathon_emailpreview>
         </routers>
-        -->
-    <layout>
-      <updates>
-        <hackathon_emailpreview>
-          <file>hackathon_emailpreview.xml</file>
-        </hackathon_emailpreview>
-      </updates>
-    </layout>
-  </frontend>
-  <adminhtml>
-    <layout>
-      <updates>
-        <hackathon_emailpreview>
-          <file>hackathon_emailpreview.xml</file>
-        </hackathon_emailpreview>
-      </updates>
-    </layout>
-  </adminhtml>
-  <admin>
-    <routers>
-      <adminhtml>
-        <args>
-          <modules>
-            <Hackathon_EmailPreview before="Mage_Adminhtml">Hackathon_EmailPreview_Adminhtml</Hackathon_EmailPreview>
-          </modules>
-        </args>
-      </adminhtml>
-    </routers>
-  </admin>
-  <!--
+        <layout>
+            <updates>
+                <hackathon_emailpreview>
+                    <file>hackathon_emailpreview.xml</file>
+                </hackathon_emailpreview>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+    	<translate>
+            <modules>
+                <hackathon_emailpreview>
+                    <files>
+                        <default>Hackathon_EmailPreview/Hackathon_EmailPreview.csv</default>
+                    </files>
+                </hackathon_emailpreview>
+            </modules>
+        </translate>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Hackathon_EmailPreview before="Mage_Adminhtml">Hackathon_EmailPreview_Adminhtml</Hackathon_EmailPreview>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <!--
     <crontab>
         <jobs>
             <hackathon_emailpreview_cron>

@@ -1,3 +1,4 @@
 app/code/community/Hackathon/EmailPreview app/code/community/Hackathon/EmailPreview
 app/etc/modules/Hackathon_EmailPreview.xml app/etc/modules/Hackathon_EmailPreview.xml
 app/design/adminhtml/default/default/layout/hackathon_emailpreview.xml app/design/adminhtml/default/default/layout/hackathon_emailpreview.xml
+app/locale/en_US/Hackathon_EmailPreview/ app/locale/en_US/Hackathon_EmailPreview/
