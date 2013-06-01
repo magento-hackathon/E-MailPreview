@@ -238,8 +238,12 @@ Shouldn't be a problem, just provide the customer object.
 
 * Same as Shipment Update, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
-### Sitemap generate Warnings
-
+### DONE: Sitemap generate Warnings
+* Template file: sitemap_generate_warning.html
+* Template type: text
+* Method: Mage_Sitemap_Model_Observer::scheduledGenerateSitemaps()
+* Template params:
+  - 'warnings' => join("\n", $errors)
 
 ### DONE: Token Status Change
 * Template file: token.html
