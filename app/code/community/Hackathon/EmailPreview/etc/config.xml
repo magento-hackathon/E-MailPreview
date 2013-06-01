@@ -41,9 +41,13 @@
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_order_email>
                     <hackathon_emailpreview_password_email>
-                        <class>hackathon_emailpreview/mail_type_Password</class>
+                        <class>hackathon_emailpreview/mail_type_password</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_password_email>
+                    <hackathon_emailpreview_account_email>
+                        <class>hackathon_emailpreview/mail_type_account</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_account_email>
                 </observers>
             </hackathon_emailpreview_render_email_before>
         </events>
