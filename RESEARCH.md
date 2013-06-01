@@ -30,7 +30,12 @@ Research notes for the implementation of this extension.
 
 
 ### Forgot Password
-
+* Template file: account_password_reset_confirmation.html
+* Template type: html
+* Method: Mage_Customer_Model_Customer::sendPasswordResetConfirmationEmail()
+* Template params:
+  - customer (Mage_Customer_Model_Customer)
+Shouldn't be a problem, just provide the customer object.  
 
 ### Invoice Update
 
@@ -121,13 +126,31 @@ Research notes for the implementation of this extension.
 * Same as New Shipment, the method checks whether customer is guest by $order->getCustomerIsGuest()
 
 ### New account
-
+* Template file: account_new.html
+* Template type: html
+* Method: Mage_Customer_Model_Customer::sendNewAccountEmail()
+* Template params:
+  - customer (Mage_Customer_Model_Customer)
+  - backUrl (String, default '')
+Shouldn't be a problem, just provide the customer object.  
 
 ### New account confirmation key
-
+* Template file: account_new_confirmation.html
+* Template type: html
+* Method: Mage_Customer_Model_Customer::sendNewAccountEmail()
+* Template params:
+  - customer (Mage_Customer_Model_Customer)
+  - backUrl (String, default '')
+Shouldn't be a problem, just provide the customer object.  
 
 ### New account confirmed
-
+* Template file: account_new_confirmed.html
+* Template type: html
+* Method: Mage_Customer_Model_Customer::sendNewAccountEmail()
+* Template params:
+  - customer (Mage_Customer_Model_Customer)
+  - backUrl (String, default '')
+Shouldn't be a problem, just provide the customer object.  
 
 ### Newsletter subscription confirmation
 
@@ -166,7 +189,12 @@ Research notes for the implementation of this extension.
 
 
 ### Remind Password
-
+* Template file: password_new.html
+* Template type: html
+* Method: Mage_Customer_Model_Customer::sendPasswordReminderEmail()
+* Template params:
+  - customer (Mage_Customer_Model_Customer)
+Shouldn't be a problem, just provide the customer object. 
 
 ### Send product to a friend
 
