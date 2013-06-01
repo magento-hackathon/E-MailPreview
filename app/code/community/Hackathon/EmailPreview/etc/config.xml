@@ -72,6 +72,10 @@
                         <class>hackathon_emailpreview/mail_type_sitemapGenerateWarningsEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_sitemap_generate_warnings_email>
+                    <hackathon_emailpreview_share_wishlist_email>
+                        <class>hackathon_emailpreview/mail_type_shareWishlistEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_share_wishlist_email>
                 </observers>
             </hackathon_emailpreview_render_email_before>
         </events>

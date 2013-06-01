@@ -220,8 +220,17 @@ Shouldn't be a problem, just provide the customer object.
 ### Send product to a friend
 
 
-### Share Wishlist
-
+### DONE: Share Wishlist
+* Template file: wishlist_share.html
+* Template type: html
+* Method: Mage_Wishlist_controllers_IndexController::sendAction()
+* Template params:
+  - 'customer'       => $customer,
+  - 'salable'        => $wishlist->isSalable() ? 'yes' : '',
+  - 'items'          => $wishlistBlock,
+  - 'addAllLink'     => Mage::getUrl('*/shared/allcart', array('code' => $sharingCode)),
+  - 'viewOnSiteLink' => Mage::getUrl('*/shared/index', array('code' => $sharingCode)),
+  - 'message'        => $message
 
 ### DONE: Shipment Update
 
