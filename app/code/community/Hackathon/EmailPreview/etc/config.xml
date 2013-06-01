@@ -33,31 +33,27 @@
             </hackathon_emailpreview_setup>
         </resources>
         -->
-        <!--
         <events>
-            <catalog_product_load_after>
+            <hackathon_emailpreview_render_email_before>
                 <observers>
-                    <hackathon_emailpreview>
-                        <class>hackathon_emailpreview/observer</class>
-                        <method>catalogProductLoadAfter</method>
-                    </hackathon_emailpreview>
+                    <hackathon_emailpreview_order_email>
+                        <class>hackathon_emailpreview/mail_type_orderEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_order_email>
                 </observers>
-            </catalog_product_load_after>
+            </hackathon_emailpreview_render_email_before>
         </events>
-        -->
     </global>
     <frontend>
-        <!--
         <routers>
            <hackathon_emailpreview>
                <use>standard</use>
                <args>
                    <module>Hackathon_EmailPreview</module>
-                   <frontName>mgt</frontName>
+                   <frontName>emailpreview</frontName>
                </args>
            </hackathon_emailpreview>
         </routers>
-        -->
         <layout>
             <updates>
                 <hackathon_emailpreview>
