@@ -4,6 +4,9 @@
         <Hackathon_EmailPreview>
             <active>true</active>
             <codePool>community</codePool>
+            <depends>
+            	<Mage_Adminhtml />
+            </depends>
         </Hackathon_EmailPreview>
      </modules>
 </config>
