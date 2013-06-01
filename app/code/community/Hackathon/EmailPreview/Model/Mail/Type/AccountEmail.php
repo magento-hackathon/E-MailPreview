@@ -1,9 +1,10 @@
 <?php
 
-class Hackathon_EmailPreview_Model_Mail_Type_Password
+class Hackathon_EmailPreview_Model_Mail_Type_AccountEmail
 {
-    const TYPE_FORGOT_PASSWORD = 'test_forgot_password_email_template';
-    const TYPE_REMIND_PASSWORD = 'test_remind_password_email_template';
+    const TYPE_NEW_ACCOUNT = 'test_new_account_email_template';
+    const TYPE_NEW_ACCOUNT_CONFIRMATION_KEY = 'test_new_account_confirmation_key_email_template';
+    const TYPE_NEW_ACCOUNT_CONFIRMATED = 'test_new_account_confirmed_email_template';
     
     /**
      * @param Varien_Event_Observer $observer
@@ -11,7 +12,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_Password
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {
-        if (!in_array($observer->getEvent()->getData('templateType'), array(self::TYPE_FORGOT_PASSWORD, self::TYPE_REMIND_PASSWORD))) {
+        if (!in_array($observer->getEvent()->getData('templateType'), array(self::TYPE_NEW_ACCOUNT, self::TYPE_NEW_ACCOUNT_CONFIRMATION_KEY, self::TYPE_NEW_ACCOUNT_CONFIRMATED))) {
             return $this;
         }
         
@@ -21,6 +22,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_Password
         $customer = Mage::getModel('customer/customer')->load($customerId);
         $customer->setPassword(Mage::helper('hackathon_emailpreview')->__('[yourpasswordhere]'));
         $templateParams->setCustomer($customer);
+        $templateParams->setBackUrl('');
 
         return $this;
     }

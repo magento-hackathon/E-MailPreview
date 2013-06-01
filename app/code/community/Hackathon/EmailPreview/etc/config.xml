@@ -53,15 +53,15 @@
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_sales_shipment_email>
                     <hackathon_emailpreview_password_email>
-                        <class>hackathon_emailpreview/mail_type_password</class>
+                        <class>hackathon_emailpreview/mail_type_passwordEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_password_email>
                     <hackathon_emailpreview_account_email>
-                        <class>hackathon_emailpreview/mail_type_account</class>
+                        <class>hackathon_emailpreview/mail_type_accountEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_account_email>
                     <hackathon_emailpreview_token_status_change_email>
-                        <class>hackathon_emailpreview/mail_type_tokenStatusChange</class>
+                        <class>hackathon_emailpreview/mail_type_tokenStatusChangeEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_token_status_change_email>
                 </observers>

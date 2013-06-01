@@ -1,6 +1,6 @@
 <?php
 
-class Hackathon_EmailPreview_Model_Mail_Type_TokenStatusChange
+class Hackathon_EmailPreview_Model_Mail_Type_TokenStatusChangeEmail
 {
     const TYPE = 'test_token_status_change_email_template';
     
