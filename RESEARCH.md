@@ -26,7 +26,7 @@ Research notes for the implementation of this extension.
 ### Currency Update Warnings
 
 
-### DONE: Forgot Admin Password
+### Forgot Admin Password
 
 
 ### DONE: Forgot Password
