@@ -1,6 +1,6 @@
 <?php
 
-class Hackathon_EmailPreview_Model_Mail_Type_Password extends Hackathon_EmailPreview_Model_Mail_Type_SalesAbstract
+class Hackathon_EmailPreview_Model_Mail_Type_Password
 {
     const TYPE_FORGOT_PASSWORD = 'test_forgot_password_email_template';
     const TYPE_REMIND_PASSWORD = 'test_remind_password_email_template';
