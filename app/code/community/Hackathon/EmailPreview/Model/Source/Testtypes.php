@@ -14,6 +14,8 @@ class Hackathon_EmailPreview_Model_Source_Testtypes extends Varien_Object
             $options[(string) $node->type] = (string) $node->name;
         }
 
+        asort($options);
+
         return $options;
     }
 
