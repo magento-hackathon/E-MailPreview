@@ -35,25 +35,34 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'class' => 'entry-edit-head',
         ));
 
-        $fieldset->addField('previewtype', 'select', array(
-            'name' => 'previewtype',
+        $templateId = Mage::app()->getRequest()->getParam('id', false);
+        $fieldset->addField('templateId', 'hidden', array(
+            'name' => 'templateId',
+            'label' => $helper->__('Template Type'),
+            'value' => $templateId
+        ));
+
+        $fieldset->addField('templateType', 'select', array(
+            'name' => 'templateType',
             'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
-            'label' => $helper->__('Preview Type'),
+            'label' => $helper->__('Template Type'),
         ));
 
         $fieldset->addField('incrementId', 'text', array(
-            'name' => 'incrementid',
+            'name' => 'incrementId',
             'label' => $helper->__('Increment ID'),
         ));
 
         $fieldset->addField('customerId', 'text', array(
-            'name' => 'customerid',
+            'name' => 'customerId',
             'label' => $helper->__('Customer ID'),
         ));
 
-        $fieldset->addField('storeId', 'text', array(
-            'name' => 'storeid',
+        $fieldset->addField('storeId', 'select', array(
+            'name' => 'storeId',
             'label' => $helper->__('Store ID'),
+            'title' => $helper->__('Store ID'),
+            'values' => Mage::getModel('adminhtml/system_config_source_store')->toOptionArray(),
         ));
 
         $fieldset->addField('comment', 'text', array(
@@ -62,22 +71,22 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         ));
 
         $fieldset->addField('fromName', 'text', array(
-            'name' => 'fromname',
+            'name' => 'fromName',
             'label' => $helper->__('From Name'),
         ));
 
         $fieldset->addField('fromEmail', 'text', array(
-            'name' => 'fromemail',
+            'name' => 'fromEmail',
             'label' => $helper->__('From Email'),
         ));
 
         $fieldset->addField('toName', 'text', array(
-            'name' => 'toname',
+            'name' => 'toName',
             'label' => $helper->__('To Name'),
         ));
 
         $fieldset->addField('toEmail', 'text', array(
-            'name' => 'toemail',
+            'name' => 'toEmail',
             'label' => $helper->__('To Email'),
         ));
 
@@ -86,11 +95,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'label' => $helper->__('Message'),
         ));
         $fieldset->addField('productSku', 'text', array(
-            'name' => 'productsku',
+            'name' => 'productSku',
             'label' => $helper->__('Product SKU'),
         ));
         $fieldset->addField('wishlistId', 'text', array(
-            'name' => 'wishlistid',
+            'name' => 'wishlistId',
             'label' => $helper->__('Wishlist ID'),
         ));
 

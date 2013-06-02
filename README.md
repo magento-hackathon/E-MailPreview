@@ -54,6 +54,7 @@ Roadmap
 * Give hints which parameters are needed / data is needed for the selected preview type
   (hide non-needed elements and/or parse template code to find used variables?)
 * Check if a valid customer id, increment id etc. is provided
+* Provide feature to preview new templates (at the moment only saved template can be previewed).
 
 Support
 -------

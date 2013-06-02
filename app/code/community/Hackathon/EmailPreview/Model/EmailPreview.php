@@ -2,6 +2,13 @@
 
 class Hackathon_EmailPreview_Model_EmailPreview
 {
+    /**
+     * Returns the code of the rendered email.
+     * 
+     * @param int $templateId
+     * @param array $templateParams
+     * @return string
+     */
     public function renderEmail($templateId, $templateParams)
     {
         $appEmulation = Mage::getSingleton('core/app_emulation');
@@ -28,6 +35,6 @@ class Hackathon_EmailPreview_Model_EmailPreview
         // Stop store emulation process
         $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
         
-        echo $templateProcessed;
+        return $templateProcessed;
     }
 }

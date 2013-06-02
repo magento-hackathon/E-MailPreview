@@ -21,4 +21,11 @@
       </block>
     </reference>
   </adminhtml_system_email_template_edit>
+  
+  <adminhtml_preview_index>
+  	<reference name="root">
+  		<action method="setTemplate"><template>newsletter/template/preview.phtml</template></action>
+        <block type="hackathon_emailpreview/adminhtml_email_previewContent" name="content" as="content"></block>
+  	</reference>
+  </adminhtml_preview_index>
 </layout>
