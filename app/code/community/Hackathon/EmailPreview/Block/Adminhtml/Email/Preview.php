@@ -14,7 +14,6 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         parent::__construct();
 
         self::_prepareForm();
-        //$this->setTemplate('hackathon/preview.phtml');
     }
 
     protected function _prepareForm()
@@ -38,7 +37,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
 
         $fieldset->addField('previewtype', 'select', array(
             'name' => 'previewtype',
-            'options' => Mage::getModel('')->toOptionArray(),
+            'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
             'label' => $helper->__('Preview Type'),
         ));
 
@@ -97,30 +96,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'value' => $helper->__('Preview with Data'),
         ));
 
-        /*
-        $form->getElement('previewtype')->setRenderer(Mage::app()->getLayout()->createBlock(
-            'turnkeye_adminform/adminhtml_form_edit_renderer_label'
-        ));
-        */
-
         if (Mage::registry('hackathon_emailpreview')) {
             $form->setValues(Mage::registry('hackathon_emailpreview')->getData());
         }
 
         return parent::_prepareForm();
-    }
-
-    public function _beforeToHtml()
-    {
-        /*
-        $this->_updateButton('save', 'label', Mage::helper('hackathon_emailpreview')->__('Save'));
-        $this->_updateButton('delete', 'label', Mage::helper('hackathon_emailpreview')->__('Delete'));
-                $this->_addButton('saveandcontinue', array(
-                    'label'     => Mage::helper('hackathon_emailpreview')->__('Save And Continue Edit'),
-                    'onclick'   => 'saveAndContinueEdit()',
-                    'class'     => 'save',
-                ), -100);
-        */
     }
 
     public function getTabLabel()

@@ -11,10 +11,7 @@ class Hackathon_EmailPreview_Model_Source_Testtypes extends Varien_Object
         $options = array();
         
         foreach ($templateLabelNode as $node) {
-            $options[] = array(
-                'value'=> (string)$node->type,
-                'label' => (string)$node->name
-            );
+            $options[(string) $node->type] = (string) $node->name;
         }
 
         return $options;
