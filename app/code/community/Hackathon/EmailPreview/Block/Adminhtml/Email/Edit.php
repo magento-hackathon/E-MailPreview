@@ -5,6 +5,13 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Edit
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
 
+    public function _prepareLayout()
+    {
+        parent::_prepareLayout();
+                
+        $this->unsetChild('preview_button');
+    }
+    
     public function __construct()
     {
         parent::__construct();
