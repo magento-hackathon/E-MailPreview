@@ -49,13 +49,6 @@ Uninstallation
 --------------
 1. Remove the extension by removing the files.
 
-Roadmap
--------
-* Give hints which parameters are needed / data is needed for the selected preview type
-  (hide non-needed elements and/or parse template code to find used variables?)
-* Check if a valid customer id, increment id etc. is provided
-* Provide feature to preview new templates (at the moment only saved template can be previewed).
-
 Support
 -------
 If you have any issues with this extension, open an issue on [GitHub](https://github.com/magento-hackathon/E-MailPreview/issues).
