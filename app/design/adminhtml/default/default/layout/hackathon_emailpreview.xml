@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
 <layout>
   <adminhtml_system_email_template_edit>
-
-    <remove name="template_edit"/>
-
     <reference name="left">
-      <block type="hackathon_emailpreview/adminhtml_email" name="hackathon_emailpreview_adminhtml_email">
-        <block type="hackathon_emailpreview/adminhtml_email_edit" name="hackathon_emailpreview_adminhtml_email_edit"/>
+      <block type="hackathon_emailpreview/adminhtml_email"
+             name="hackathon_emailpreview_adminhtml_email">
+        <block type="hackathon_emailpreview/adminhtml_email_edit"
+               name="hackathon_emailpreview_adminhtml_email_edit"/>
         <block type="hackathon_emailpreview/adminhtml_email_preview"
                name="hackathon_emailpreview_adminhtml_email_preview"/>
+
         <action method="addTab">
           <name>template_myedit</name>
           <block>hackathon_emailpreview_adminhtml_email_edit</block>
         </action>
+
         <action method="addTab">
           <name>template_preview</name>
           <block>hackathon_emailpreview_adminhtml_email_preview</block>

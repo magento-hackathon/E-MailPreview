@@ -100,7 +100,14 @@
         </layout>
     </frontend>
     <adminhtml>
-    	<translate>
+      <layout>
+        <updates>
+          <hackathon_emailpreview>
+            <file>hackathon_emailpreview.xml</file>
+          </hackathon_emailpreview>
+        </updates>
+      </layout>
+      <translate>
             <modules>
                 <hackathon_emailpreview>
                     <files>

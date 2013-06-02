@@ -12,8 +12,6 @@ class Hackathon_EmailPreview_Adminhtml_System_Email_TemplateController
      */
     public function editAction()
     {
-        echo "myControllerAdminhtml";
-
         $this->loadLayout();
         $template = $this->_initTemplate('id');
         $this->_setActiveMenu('system/email_template');
