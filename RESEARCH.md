@@ -203,10 +203,21 @@ Shouldn't be a problem, just provide the customer object.
 ### Product alerts Cron error
 
 
-### Product price alert
+### DONE: Product price alert
+* Template file: product_price_alert.html
+* Template type: html
+* Method: Mage_ProductAlert_Model_Email::send()
+* Template params:
+  * 'customerName'  => $this->_customer->getName(),
+  * 'alertGrid'     => $block
 
-
-### Product stock alert
+### DONE: Product stock alert
+* Template file: product_stock_alert.html
+* Template type: html
+* Method: Mage_ProductAlert_Model_Email::send()
+* Template params:
+  * 'customerName'  => $this->_customer->getName(),
+  * 'alertGrid'     => $block
 
 
 ### DONE: Remind Password
@@ -214,7 +225,7 @@ Shouldn't be a problem, just provide the customer object.
 * Template type: html
 * Method: Mage_Customer_Model_Customer::sendPasswordReminderEmail()
 * Template params:
-  - customer (Mage_Customer_Model_Customer)
+  * customer (Mage_Customer_Model_Customer)
 Shouldn't be a problem, just provide the customer object. 
 
 ### DONE: Send product to a friend

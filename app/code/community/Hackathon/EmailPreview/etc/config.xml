@@ -161,6 +161,14 @@
                         <class>hackathon_emailpreview/mail_type_shareWishlistEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_share_wishlist_email>
+                    <hackathon_emailpreview_product_price_alert_email>
+                        <class>hackathon_emailpreview/mail_type_productAlert_priceEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_product_price_alert_email>
+                    <hackathon_emailpreview_product_stock_alert_email>
+                        <class>hackathon_emailpreview/mail_type_productAlert_stockEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_product_stock_alert_email>
                 </observers>
             </hackathon_emailpreview_render_email_before>
         </events>
