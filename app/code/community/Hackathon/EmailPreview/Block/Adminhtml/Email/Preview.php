@@ -21,7 +21,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         $form = new Varien_Data_Form(
             array(
                 'id' => 'edit_form',
-                'action' => $this->getUrl('*/*/datapreview'),
+                'action' => $this->getUrl('*/preview/index'),
                 'method' => 'post',
             )
         );
@@ -32,7 +32,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         $helper = Mage::helper('hackathon_emailpreview');
         $fieldset = $form->addFieldset('display', array(
             'legend' => $helper->__('Preview with Data'),
-            'class' => 'entry-edit-head'
+            'class' => 'entry-edit-head',
         ));
 
         $fieldset->addField('previewtype', 'select', array(
@@ -49,6 +49,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         $fieldset->addField('customerId', 'text', array(
             'name' => 'customerid',
             'label' => $helper->__('Customer ID'),
+        ));
+
+        $fieldset->addField('storeId', 'text', array(
+            'name' => 'storeid',
+            'label' => $helper->__('Store ID'),
         ));
 
         $fieldset->addField('comment', 'text', array(
@@ -91,8 +96,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
 
         $fieldset->addField('previewbutton', 'submit', array(
             'name' => 'previewbutton',
-            'class' => 'scalable',
-            'style' => 'width: 200px',
+            'class' => 'scalable form-button',
             'value' => $helper->__('Preview with Data'),
         ));
 
