@@ -21,6 +21,90 @@
         <class>Hackathon_EmailPreview_Helper</class>
       </hackathon_emailpreview>
     </helpers>
+    <email>
+        <testtypes>
+            <sendfriend>
+                <name>Send product to a friend</name>
+                <type>test_sendfriend_email_template</type>
+            </sendfriend>
+            <newsletter_confirm>
+                <name>Confirm newsletter</name>
+                <type>test_newsleter_subscribe_email_template</type>
+            </newsletter_confirm>
+            <newsletter_subscribe_success>
+                <name>Newsletter subscribe success</name>
+                <type>test_newsletter_subscribe_success_email_template</type>
+            </newsletter_subscribe_success>
+            <newsletter_unsubscribe_success>
+                <name>Newsletter unsubscribe success</name>
+                <type>test_newsletter_unsubscribe_success_email_template</type>
+            </newsletter_unsubscribe_success>
+            <sales_order_new>
+                <name>New order</name>
+                <type>test_sales_order_email_template</type>
+            </sales_order_new>
+            <sales_order_update>
+                <name>Update order</name>
+                <type>test_sales_order_update_email_template</type>
+            </sales_order_update>
+            <sales_invoice_new>
+                <name>New invoice</name>
+                <type>test_sales_order_invoice_email_template</type>
+            </sales_invoice_new>
+            <sales_invoice_update>
+                <name>Update invoice</name>
+                <type>test_sales_order_invoice_update_email_template</type>
+            </sales_invoice_update>
+            <sales_shipment_new>
+                <name>New shipment</name>
+                <type>test_sales_order_shipment_email_template</type>
+            </sales_shipment_new>
+            <sales_shipment_update>
+                <name>Update shipment</name>
+                <type>test_sales_order_shipment_update_email_template</type>
+            </sales_shipment_update>
+            <sales_creditmemo_new>
+                <name>New creditmemo</name>
+                <type>test_sales_order_creditmemo_email_template</type>
+            </sales_creditmemo_new>
+            <sales_creditmemo_update>
+                <name>Update creditmemo</name>
+                <type>test_sales_order_creditmemo_update_email_template</type>
+            </sales_creditmemo_update>
+            <account_new>
+                <name>New account</name>
+                <type>test_new_account_email_template</type>
+            </account_new>
+            <account_confirmation_key>
+                <name>Account confirmation key</name>
+                <type>test_new_account_confirmation_key_email_template</type>
+            </account_confirmation_key>
+            <account_confirmed>
+                <name>Account confirmed</name>
+                <type>test_new_account_confirmed_email_template</type>
+            </account_confirmed>
+            <password_forgot>
+                <name>Forgot password</name>
+                <type>test_forgot_password_email_template</type>
+            </password_forgot>
+            <password_remind>
+                <name>Password reminder</name>
+                <type>test_remind_password_email_template</type>
+            </password_remind>
+            <wishlist_share>
+                <name>Share wishlist</name>
+                <type>test_share_wishlist_email_template</type>
+            </wishlist_share>
+            <sitemap_generate_warnings>
+                <name>Sitemap generate warnings</name>
+                <type>test_sitemap_generate_warnings_email_template</type>
+            </sitemap_generate_warnings>
+            <token_status_change>
+                <name>Token status change</name>
+                <type>test_token_status_change_email_template</type>
+            </token_status_change>
+        </testtypes>
+    </email>
     <!--
         <resources>
             <hackathon_emailpreview_setup>
