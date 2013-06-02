@@ -174,15 +174,6 @@
         </events>
     </global>
     <frontend>
-        <routers>
-           <hackathon_emailpreview>
-               <use>standard</use>
-               <args>
-                   <module>Hackathon_EmailPreview</module>
-                   <frontName>emailpreview</frontName>
-               </args>
-           </hackathon_emailpreview>
-        </routers>
         <layout>
             <updates>
                 <hackathon_emailpreview>
