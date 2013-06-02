@@ -286,3 +286,53 @@ Shouldn't be a problem, just provide the customer object.
     * 'email'           => $userEmail       // @var string
     * 'applicationName' => $applicationName // @var string
     * 'status'          => $status          // @var string
+
+## Necessary parameters
+
+* customerId
+  - test_product_price_alert_email_template
+  - test_product_stock_alert_email_template
+  - test_new_account_email_template
+  - test_new_account_confirmation_key_email_template
+  - test_new_account_confirmed_email_template
+  - test_forgot_password_email_template
+  - test_remind_password_email_template
+  - test_share_wishlist_email_template
+* incrementId (Order)
+  - test_sales_order_creditmemo_email_template
+  - test_sales_order_creditmemo_update_email_template
+  - test_sales_order_invoice_email_template
+  - test_sales_order_invoice_update_email_template
+  - test_sales_order_email_template
+  - test_sales_order_update_email_template
+  - test_sales_order_shipment_email_template
+  - test_sales_order_shipment_update_email_template
+* comment (optional)
+  - test_sales_order_creditmemo_email_template
+  - test_sales_order_creditmemo_update_email_template
+  - test_sales_order_invoice_email_template
+  - test_sales_order_invoice_update_email_template
+  - test_sales_order_email_template
+  - test_sales_order_update_email_template
+  - test_sales_order_shipment_email_template
+  - test_sales_order_shipment_update_email_template
+* fromName
+  - test_sendfriend_email_template
+* fromEmail
+  - test_sendfriend_email_template
+* toName
+  - test_sendfriend_email_template
+* toEmail
+  - test_sendfriend_email_template
+* message
+  - test_sendfriend_email_template
+* productSku
+  - test_sendfriend_email_template
+* wishlistId
+  - test_share_wishlist_email_template
+* (kein Parameter)
+  - test_newsleter_subscribe_email_template
+  - test_newsletter_subscribe_success_email_template
+  - test_newsletter_unsubscribe_success_email_templates
+  - test_sitemap_generate_warnings_email_template
+  - test_token_status_change_email_template
