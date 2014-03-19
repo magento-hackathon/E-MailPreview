@@ -103,6 +103,14 @@
                 <name>Token status change</name>
                 <type>test_token_status_change_email_template</type>
             </token_status_change>
+            <rma_new>
+                <name>New RMA Request</name>
+                <type>test_rma_new_email_template</type>
+            </rma_new>
+            <rma_auth>
+                <name>RMA Request Authorization</name>
+                <type>test_rma_auth_email_template</type>
+            </rma_auth>
         </testtypes>
     </email>
     <!--
@@ -169,6 +177,10 @@
                         <class>hackathon_emailpreview/mail_type_productAlert_stockEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_product_stock_alert_email>
+                    <hackathon_emailpreview_rma_email>
+                        <class>hackathon_emailpreview/mail_type_rmaNew</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_rma_email>
                 </observers>
             </hackathon_emailpreview_render_email_before>
         </events>
