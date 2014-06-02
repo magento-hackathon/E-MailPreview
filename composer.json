@@ -1,0 +1,23 @@
+{
+    "name": "magento-hackathon/e-mail-preview",
+    "type": "magento-module",
+    "description": "This Magento extension enables the merchants and developers to preview mail templates from the backend with real data.",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Matthias Zeis",
+            "email": "admin@matthias-zeis.com"
+        },
+        {
+            "name": "Marc Päpper",
+            "email": "m.paepper@lemundo.de"
+        },
+        {
+            "name": "Tobias Hille",
+            "email": "tobihille@googlemail.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
