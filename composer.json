@@ -17,7 +17,7 @@
             "email": "tobihille@googlemail.com"
         }
     ],
-    "require": {
+    "suggest": {
         "magento-hackathon/magento-composer-installer": "*"
     }
 }
