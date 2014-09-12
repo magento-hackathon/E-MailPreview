@@ -17,7 +17,7 @@
             "email": "tobihille@googlemail.com"
         }
     ],
-    "require": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+    "suggest": {
+    "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency"
+  }
 }
