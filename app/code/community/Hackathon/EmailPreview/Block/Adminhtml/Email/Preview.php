@@ -18,11 +18,12 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
 
     protected function _prepareForm()
     {
-        $form = new Varien_Data_Form(
+        $form = new Hackathon_EmailPreview_Model_Data_Form(
             array(
                 'id' => 'edit_form',
                 'action' => $this->getUrl('*/preview/index'),
                 'method' => 'post',
+                'target' => '_blank'
             )
         );
 
