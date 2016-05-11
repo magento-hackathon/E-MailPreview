@@ -57,32 +57,17 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         ));
 
         $entityTemplateName = 'rma';
-        $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
-            'name' => "{$entityTemplateName}IncrementId",
-            'label' => $helper->__('Increment ID'),
-            'values'    => $this->modelOptions('enterprise_rma/rma',$entityTemplateName),
-        ));
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'enterprise_rma/rma');
 
         $entityTemplateName = 'creditmemo';
-        $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
-            'name' => "{$entityTemplateName}IncrementId",
-            'label' => $helper->__('Increment ID'),
-            'values'    => $this->modelOptions('sales/order_creditmemo','creditmemo'),
-        ));
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_creditmemo');
 
         $entityTemplateName = 'order';
-        $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
-            'name' => "{$entityTemplateName}IncrementId",
-            'label' => $helper->__('Increment ID'),
-            'values'    => $this->modelOptions('sales/order',$entityTemplateName),
-        ));
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order');
 
         $entityTemplateName = 'shipment';
-        $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
-            'name' => "{$entityTemplateName}IncrementId",
-            'label' => $helper->__('Increment ID'),
-            'values'    => $this->modelOptions('sales/order_shipment',$entityTemplateName),
-        ));
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_shipment');
+
 
         $fieldset->addField('customerId', 'select', array(
             'name' => 'customerId',
@@ -227,6 +212,22 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
                 'label' => Mage::helper('hackathon_emailpreview')->__('Could not access increment IDs for this data type.'),
             ];
         endif;
+    }
+
+    /**
+     * @param $fieldset
+     * @param $entityTemplateName
+     * @param $helper
+     * @param $model
+     * @return mixed
+     */
+    protected function addIncrementIdField($fieldset, $entityTemplateName, $helper, $model)
+    {
+        return $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
+            'name' => "{$entityTemplateName}IncrementId",
+            'label' => $helper->__('Increment ID'),
+            'values' => $this->modelOptions($model, $entityTemplateName),
+        ));
     }
 
 }
