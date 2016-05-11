@@ -35,9 +35,13 @@ abstract class Hackathon_EmailPreview_Model_Mail_Type_Sales_Abstract
     {
         $templateParams = $observer->getEvent()->getData('templateParams');
         $requestParams = $templateParams->getRequestParams();
-        
-        $incrementId = $requestParams['incrementId'];
-        
+        //die($entityTemplateName);
+        if($entityTemplateName == null):
+            $incrementId = $requestParams["orderIncrementId"];
+        else:
+            $incrementId = $requestParams["{$entityTemplateName}IncrementId"];
+        endif;
+
         $entity = $this->_loadEntityByIncrementId($modelName, $incrementId);
         
         $order = $this->_loadOrderFrom($entity);
