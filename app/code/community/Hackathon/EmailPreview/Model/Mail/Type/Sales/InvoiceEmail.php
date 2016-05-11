@@ -16,7 +16,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_Sales_InvoiceEmail extends Hackatho
                 $observer->getEvent()->getData('templateType') !== self::TYPE_UPDATE) {
             return $this;
         }
-        
+
         $this->_prepareParams($observer, 'sales/order_invoice', 'invoice');
         
         return $this;
