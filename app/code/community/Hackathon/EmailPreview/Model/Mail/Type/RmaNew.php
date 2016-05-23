@@ -15,7 +15,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_RmaNew extends Hackathon_EmailPrevi
             return $this;
         }
 
-        $this->_prepareParams($observer, 'enterprise_rma/rma');
+        $this->_prepareParams($observer, 'enterprise_rma/rma', 'rma');
 
         return $this;
     }

@@ -43,20 +43,41 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'value' => $templateId
         ));
 
-        $fieldset->addField('templateType', 'select', array(
+        $templateTypeField = $fieldset->addField('templateType', 'select', array(
             'name' => 'templateType',
             'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
             'label' => $helper->__('Template Type'),
         ));
 
-        $fieldset->addField('incrementId', 'text', array(
-            'name' => 'incrementId',
+        $entityTemplateName = 'invoice';
+        $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
+            'name' => "{$entityTemplateName}IncrementId",
             'label' => $helper->__('Increment ID'),
+            'values'    => $this->modelOptions('sales/order_invoice', $entityTemplateName)
         ));
 
-        $fieldset->addField('customerId', 'text', array(
+        $entityTemplateName = 'rma';
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'enterprise_rma/rma');
+
+        $entityTemplateName = 'creditmemo';
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_creditmemo');
+
+        $entityTemplateName = 'order';
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order');
+
+        $entityTemplateName = 'shipment';
+        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_shipment');
+
+
+        $fieldset->addField('customerId', 'select', array(
             'name' => 'customerId',
             'label' => $helper->__('Customer ID'),
+            'values'    => array_map(function($customer){
+                return [
+                    'value'=>$customer['entity_id'],
+                    'label'=>"{$customer['email']} ({$customer['entity_id']})",
+                ];
+            }, Mage::getModel('customer/customer')->getCollection()->setPageSize(100)->setCurPage(1)->getData()),
         ));
 
         $fieldset->addField('storeId', 'select', array(
@@ -109,7 +130,40 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'class' => 'scalable form-button',
             'value' => $helper->__('Preview with Data'),
         ));
-
+        $this->setChild('form_after', Mage::app()->getLayout()
+            ->createBlock('adminhtml/widget_form_element_dependence')
+            ->addFieldMap($templateTypeField->getHtmlId(), $templateTypeField->getName())
+            ->addFieldMap($incrementFields['invoice']->getHtmlId(), $incrementFields['invoice']->getName())
+            ->addFieldMap($incrementFields['rma']->getHtmlId(), $incrementFields['rma']->getName())
+            ->addFieldMap($incrementFields['creditmemo']->getHtmlId(), $incrementFields['creditmemo']->getName())
+            ->addFieldMap($incrementFields['order']->getHtmlId(), $incrementFields['order']->getName())
+            ->addFieldMap($incrementFields['shipment']->getHtmlId(), $incrementFields['shipment']->getName())
+            ->addFieldDependence(
+                $incrementFields['invoice']->getName(),
+                $templateTypeField->getName(),
+                'test_sales_order_invoice_email_template'
+            )
+            ->addFieldDependence(
+                $incrementFields['rma']->getName(),
+                $templateTypeField->getName(),
+                'test_rma_new_email_template'
+            )
+            ->addFieldDependence(
+                $incrementFields['creditmemo']->getName(),
+                $templateTypeField->getName(),
+                'test_sales_order_creditmemo_email_template'
+            )
+            ->addFieldDependence(
+                $incrementFields['order']->getName(),
+                $templateTypeField->getName(),
+                'test_sales_order_email_template'
+            )
+            ->addFieldDependence(
+                $incrementFields['shipment']->getName(),
+                $templateTypeField->getName(),
+                'test_sales_order_shipment_email_template'
+            )
+        );
         if (Mage::registry('hackathon_emailpreview')) {
             $form->setValues(Mage::registry('hackathon_emailpreview')->getData());
         }
@@ -135,6 +189,45 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
     public function isHidden()
     {
         return false;
+    }
+
+    /**
+     * @param string $model
+     * @param $entityTemplateName
+     * @return array
+     */
+    protected function modelOptions($model = "", $entityTemplateName)
+    {
+        if ($mageModel = Mage::getModel($model)):
+            return array_map(function ($collectionItem, $entityTemplateName) use ($entityTemplateName) {
+                $entityType = ucfirst($entityTemplateName);
+                return [
+                    'value' => $collectionItem['increment_id'],
+                    'label' => "$entityType #{$collectionItem['increment_id']}",
+                ];
+            }, $mageModel->getCollection()->setPageSize(100)->setCurPage(1)->getData());
+        else:
+            return [
+                'value' => null,
+                'label' => Mage::helper('hackathon_emailpreview')->__('Could not access increment IDs for this data type.'),
+            ];
+        endif;
+    }
+
+    /**
+     * @param $fieldset
+     * @param $entityTemplateName
+     * @param $helper
+     * @param $model
+     * @return mixed
+     */
+    protected function addIncrementIdField($fieldset, $entityTemplateName, $helper, $model)
+    {
+        return $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
+            'name' => "{$entityTemplateName}IncrementId",
+            'label' => $helper->__('Increment ID'),
+            'values' => $this->modelOptions($model, $entityTemplateName),
+        ));
     }
 
 }
