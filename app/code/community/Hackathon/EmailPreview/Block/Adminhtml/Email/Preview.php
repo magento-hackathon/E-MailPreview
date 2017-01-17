@@ -43,6 +43,12 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'value' => $templateId
         ));
 
+        $fieldset->addField('useLocale', 'select', array(
+            'name' => 'useLocale',
+            'options' => Mage::getModel('adminhtml/system_config_source_yesno')->toArray(),
+            'label' => $helper->__('Use template from locale')
+        ));
+
         $fieldset->addField('templateType', 'select', array(
             'name' => 'templateType',
             'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),

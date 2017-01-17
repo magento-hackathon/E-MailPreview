@@ -22,6 +22,10 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_PreviewContent extends Mage_A
         $templateParams->setRequestParams($this->getRequest()->getParams());
         $templateParams->setStoreId($storeId);
 
+        if($this->getRequest()->getParam('useLocale')) {
+            $templateId = $this->_getHelper()->getRealTemplateType($templateType);
+        }
+
         $eventData = array(
             'templateParams' => $templateParams,
             'templateType' => $templateType
@@ -38,5 +42,12 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_PreviewContent extends Mage_A
         $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
 
         return $html;
+    }
+
+    /**
+     * @return Hackathon_EmailPreview_Helper_Data|Mage_Core_Helper_Abstract
+     */
+    protected function _getHelper() {
+        return Mage::helper('hackathon_emailpreview');
     }
 }

@@ -17,7 +17,13 @@ class Hackathon_EmailPreview_Model_EmailPreview
         $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($storeId);
         
         $template = Mage::getModel('core/email_template');
-        $template->load($templateId);
+
+        if (is_numeric($templateId)) {
+            $template->load($templateId);
+        } else {
+            $localeCode = Mage::getStoreConfig('general/locale/code', $storeId);
+            $template->loadDefault($templateId, $localeCode);
+        }
         
         /* @var $filter Mage_Core_Model_Input_Filter_MaliciousCode */
         $filter = Mage::getSingleton('core/input_filter_maliciousCode');
