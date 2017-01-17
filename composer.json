@@ -1,5 +1,5 @@
 {
-    "name": "magento-hackathon/e-mail-preview",
+    "name": "schnumsel/e-mail-preview",
     "type": "magento-module",
     "description": "This Magento extension enables the merchants and developers to preview mail templates from the backend with real data.",
     "license": "OSL-3.0",
@@ -15,6 +15,10 @@
         {
             "name": "Tobias Hille",
             "email": "tobihille@googlemail.com"
+        },
+        {
+            "name": "Wilfried Wolf",
+            "email": "wilfried.wolf@sandstein.de"
         }
     ],
     "suggest": {
