@@ -15,16 +15,23 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_PreviewContent extends Mage_A
 
         $previewModel = Mage::getModel('hackathon_emailpreview/emailPreview');
 
-        $templateId = $this->getRequest()->getParam('templateId');
-        $templateType = $this->getRequest()->getParam('templateType');
+        if($this->getRequest()->getParam('testType') == Hackathon_EmailPreview_Block_Adminhtml_Email_Preview::TEST_TYPE_PER_DATABASE_TEMPLATE) {
+            $templateId = $this->getRequest()->getParam('templateId');
+            $templateType = $this->getRequest()->getParam('templateType');
+        }
+        else {
+            $configNode = Mage::app()->getConfig()->getNode(
+                Hackathon_EmailPreview_Model_Source_Templatetypes::XML_PATH_TEMPLATETYPES.'/'.$this->getRequest()->getParam('templateType'));
+
+            $templateId = Mage::getStoreConfig((string) $configNode->configpath);
+
+            $templateType =  (string) Mage::app()->getConfig()->getNode(
+                Hackathon_EmailPreview_Model_Source_Testtypes::XML_PATH_TESTTYPES.'/'.$configNode->testtype.'/type');
+        }
 
         $templateParams = new Varien_Object();
         $templateParams->setRequestParams($this->getRequest()->getParams());
         $templateParams->setStoreId($storeId);
-
-        if($this->getRequest()->getParam('useLocale')) {
-            $templateId = $this->_getHelper()->getRealTemplateType($templateType);
-        }
 
         $eventData = array(
             'templateParams' => $templateParams,
@@ -42,12 +49,5 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_PreviewContent extends Mage_A
         $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
 
         return $html;
-    }
-
-    /**
-     * @return Hackathon_EmailPreview_Helper_Data|Mage_Core_Helper_Abstract
-     */
-    protected function _getHelper() {
-        return Mage::helper('hackathon_emailpreview');
     }
 }

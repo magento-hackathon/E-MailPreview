@@ -5,6 +5,9 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
 
+    const TEST_TYPE_PER_DATABASE_TEMPLATE = 'database';
+    const TEST_TYPE_PER_USED_TEMPLATE = 'used';
+
     public function __construct()
     {
         $this->_blockGroup = 'hackathon_emailpreview';
@@ -36,19 +39,49 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'class' => 'entry-edit-head',
         ));
 
-        $templateId = Mage::app()->getRequest()->getParam('id', false);
-        $fieldset->addField('templateId', 'hidden', array(
-            'name' => 'templateId',
-            'label' => $helper->__('Template Type'),
-            'value' => $templateId
+        $this->_addSpecificFields($fieldset, $helper);
+
+        $this->_addCommonFields($fieldset, $helper);
+
+        $fieldset->addField('previewbutton', 'submit', array(
+            'name' => 'previewbutton',
+            'class' => 'scalable form-button',
+            'value' => $helper->__('Preview with Data'),
         ));
 
-        $fieldset->addField('templateType', 'select', array(
-            'name' => 'templateType',
-            'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
-            'label' => $helper->__('Template Type'),
-        ));
+        if (Mage::registry('hackathon_emailpreview')) {
+            $form->setValues(Mage::registry('hackathon_emailpreview')->getData());
+        }
 
+        return parent::_prepareForm();
+    }
+
+    public function getTabLabel()
+    {
+        return $this->helper("hackathon_emailpreview")->__("Preview Email");
+    }
+
+    public function getTabTitle()
+    {
+        return $this->helper("hackathon_emailpreview")->__("Preview Email");
+    }
+
+    public function canShowTab()
+    {
+        return true;
+    }
+
+    public function isHidden()
+    {
+        return false;
+    }
+
+    /**
+     * @param $fieldset
+     * @param $helper
+     */
+    protected function _addCommonFields($fieldset, $helper)
+    {
         $fieldset->addField('incrementId', 'text', array(
             'name' => 'incrementId',
             'label' => $helper->__('Increment ID'),
@@ -103,38 +136,32 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'name' => 'wishlistId',
             'label' => $helper->__('Wishlist ID'),
         ));
+    }
 
-        $fieldset->addField('previewbutton', 'submit', array(
-            'name' => 'previewbutton',
-            'class' => 'scalable form-button',
-            'value' => $helper->__('Preview with Data'),
+    /**
+     * @param $fieldset
+     * @param $helper
+     */
+    protected function _addSpecificFields($fieldset, $helper)
+    {
+
+        $fieldset->addField('testType', 'hidden', array(
+            'name' => 'testType',
+            'value' => self::TEST_TYPE_PER_DATABASE_TEMPLATE
         ));
 
-        if (Mage::registry('hackathon_emailpreview')) {
-            $form->setValues(Mage::registry('hackathon_emailpreview')->getData());
-        }
+        $templateId = Mage::app()->getRequest()->getParam('id', false);
 
-        return parent::_prepareForm();
-    }
+        $fieldset->addField('templateId', 'hidden', array(
+            'name' => 'templateId',
+            'value' => $templateId
+        ));
 
-    public function getTabLabel()
-    {
-        return $this->helper("hackathon_emailpreview")->__("Preview Email");
-    }
-
-    public function getTabTitle()
-    {
-        return $this->helper("hackathon_emailpreview")->__("Preview Email");
-    }
-
-    public function canShowTab()
-    {
-        return true;
-    }
-
-    public function isHidden()
-    {
-        return false;
+        $fieldset->addField('templateType', 'select', array(
+            'name' => 'templateType',
+            'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
+            'label' => $helper->__('Template Type'),
+        ));
     }
 
 }
