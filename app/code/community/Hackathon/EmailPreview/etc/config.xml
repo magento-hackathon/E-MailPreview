@@ -26,26 +26,32 @@
             <sendfriend>
                 <name>Send product to a friend</name>
                 <type>test_sendfriend_email_template</type>
+                <configpath>sendfriend/email/template</configpath>
             </sendfriend>
             <newsletter_confirm>
                 <name>Confirm newsletter</name>
                 <type>test_newsleter_subscribe_email_template</type>
+                <configpath>newsletter/subscription/confirm_email_template</configpath>
             </newsletter_confirm>
             <newsletter_subscribe_success>
                 <name>Newsletter subscribe success</name>
                 <type>test_newsletter_subscribe_success_email_template</type>
+                <configpath>newsletter/subscription/success_email_template</configpath>
             </newsletter_subscribe_success>
             <newsletter_unsubscribe_success>
                 <name>Newsletter unsubscribe success</name>
                 <type>test_newsletter_unsubscribe_success_email_template</type>
+                <configpath>newsletter/subscription/un_email_template</configpath>
             </newsletter_unsubscribe_success>
             <sales_order_new>
                 <name>New order</name>
                 <type>test_sales_order_email_template</type>
+                <configpath>sales_email/order/template</configpath>
             </sales_order_new>
             <sales_order_update>
                 <name>Update order</name>
                 <type>test_sales_order_update_email_template</type>
+                <configpath></configpath>
             </sales_order_update>
             <sales_invoice_new>
                 <name>New invoice</name>
