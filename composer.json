@@ -22,6 +22,9 @@
         }
     ],
     "suggest": {
-    "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency"
-  }
+        "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency"
+    },
+    "extra": {
+        "installer-name": "Hackathon-EmailPreview"
+    }
 }
