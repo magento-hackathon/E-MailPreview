@@ -43,7 +43,9 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_PreviewContent extends Mage_A
         $storeId = $templateParams->getStoreId();
         $templateParams->setStore(Mage::app()->getStore($storeId));
 
-        $html = $previewModel->renderEmail($templateId, $templateParams->getData());
+        $recipient = $this->getRequest()->getParam('testRecipient');
+
+        $html = $previewModel->renderEmail($templateId, $templateParams->getData(), $recipient);
 
         Mage::app()->getTranslator()->init('frontend', false);
         $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);

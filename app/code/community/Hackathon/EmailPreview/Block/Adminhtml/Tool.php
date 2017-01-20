@@ -16,6 +16,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Tool
             'value' => self::TEST_TYPE_PER_USED_TEMPLATE
         ));
 
+        $fieldset->addField('testRecipient', 'text', array(
+            'name' => 'testRecipient',
+            'label' => $helper->__('Test Recipient'),
+        ));
+
         $fieldset->addField('templateType', 'select', array(
             'name' => 'templateType',
             'options' => Mage::getModel('hackathon_emailpreview/source_templatetypes')->toOptionArray(),
