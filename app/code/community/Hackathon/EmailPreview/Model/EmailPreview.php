@@ -16,7 +16,8 @@ class Hackathon_EmailPreview_Model_EmailPreview
         $store = $templateParams['store'];
         $storeId = $store->getStoreId();
         $initialEnvironmentInfo = $appEmulation->startEnvironmentEmulation($storeId);
-        
+
+        /** @var Mage_Core_Model_Email_Template $template */
         $template = Mage::getModel('core/email_template');
 
         if (is_numeric($templateId)) {
