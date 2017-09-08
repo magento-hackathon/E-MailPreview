@@ -1,5 +1,5 @@
 {
-    "name": "schnumsel/e-mail-preview",
+    "name": "magento-hackathon/e-mail-preview",
     "type": "magento-module",
     "description": "This Magento extension enables the merchants and developers to preview mail templates from the backend with real data.",
     "license": "OSL-3.0",
@@ -23,8 +23,5 @@
     ],
     "suggest": {
         "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency"
-    },
-    "extra": {
-        "installer-name": "Hackathon-EmailPreview"
     }
 }
