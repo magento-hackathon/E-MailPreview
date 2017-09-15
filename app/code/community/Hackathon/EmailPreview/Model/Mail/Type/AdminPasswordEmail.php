@@ -14,13 +14,12 @@ class Hackathon_EmailPreview_Model_Mail_Type_AdminPasswordEmail
             return $this;
         }
 
-        //@todo change logic here
         $templateParams = $observer->getEvent()->getData('templateParams');
-        /* $requestParams = $templateParams->getRequestParams();
-        $customerId = $requestParams['customerId'];
-        $customer = Mage::getModel('customer/customer')->load($customerId);
-        $customer->setPassword(Mage::helper('hackathon_emailpreview')->__('[yourpasswordhere]'));
-        $templateParams->setCustomer($customer);*/
+        $requestParams = $templateParams->getRequestParams();
+        $userId = $requestParams['userId'];
+        $user = Mage::getModel('customer/customer')->load($userId);
+        $user->setPassword(Mage::helper('hackathon_emailpreview')->__('[yourpasswordhere]'));
+        $templateParams->setUser($user);
 
         return $this;
     }

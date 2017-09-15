@@ -87,6 +87,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'label' => $helper->__('Increment ID'),
         ));
 
+        $fieldset->addField('userId', 'text', array(
+            'name' => 'userId',
+            'label' => $helper->__('User ID'),
+        ));
+
         $fieldset->addField('customerId', 'text', array(
             'name' => 'customerId',
             'label' => $helper->__('Customer ID'),

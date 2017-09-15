@@ -392,7 +392,7 @@
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_contact>
                     <hackathon_emailpreview_admin_password_forgot>
-                        <class>hackathon_emailpreview/mail_type_adminPasswordForgot</class>
+                        <class>hackathon_emailpreview/mail_type_AdminPasswordEmail</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_admin_password_forgot>
                     <hackathon_emailpreview_oauth>
