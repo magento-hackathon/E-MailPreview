@@ -131,10 +131,14 @@
                     <name>System Errors</name>
                     <type>test_system_error_email_template</type>
                 </system_error>
-                <product_alert>
-                    <name>Product Alert</name>
-                    <type>test_product_alert_email_template</type>
-                </product_alert>
+                <product_alert_price>
+                    <name>Product Alert Price</name>
+                    <type>test_product_price_alert_email_template</type>
+                </product_alert_price>
+                <product_alert_stock>
+                    <name>Product Alert Price</name>
+                    <type>test_product_stock_alert_email_template</type>
+                </product_alert_stock>
             </testtypes>
             <templates>
                 <contacts_email>
@@ -285,12 +289,12 @@
                 <catalog_productalert_price_email>
                     <label>Catalog Productalert Price Email</label>
                     <configpath>catalog/productalert/email_price_template</configpath>
-                    <testtype>product_alert</testtype>
+                    <testtype>product_alert_price</testtype>
                 </catalog_productalert_price_email>
                 <catalog_productalert_stock_email>
                     <label>Catalog Productalert Stock Email</label>
                     <configpath>catalog/productalert/email_stock_template</configpath>
-                    <testtype>product_alert</testtype>
+                    <testtype>product_alert_stock</testtype>
                 </catalog_productalert_stock_email>
                 <system_log_error_email>
                     <label>System Log Error E-Mail</label>

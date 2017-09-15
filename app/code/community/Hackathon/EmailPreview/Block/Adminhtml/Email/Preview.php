@@ -119,6 +119,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'label' => $helper->__('From Email'),
         ));
 
+        $fieldset->addField('fromTelephone', 'text', array(
+            'name' => 'fromTelephone',
+            'label' => $helper->__('From Telephone'),
+        ));
+
         $fieldset->addField('toName', 'text', array(
             'name' => 'toName',
             'label' => $helper->__('To Name'),
@@ -133,10 +138,12 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'name' => 'message',
             'label' => $helper->__('Message'),
         ));
+
         $fieldset->addField('productSku', 'text', array(
             'name' => 'productSku',
             'label' => $helper->__('Product SKU'),
         ));
+
         $fieldset->addField('wishlistId', 'text', array(
             'name' => 'wishlistId',
             'label' => $helper->__('Wishlist ID'),

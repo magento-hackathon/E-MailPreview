@@ -17,7 +17,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_AdminPasswordEmail
         $templateParams = $observer->getEvent()->getData('templateParams');
         $requestParams = $templateParams->getRequestParams();
         $userId = $requestParams['userId'];
-        $user = Mage::getModel('customer/customer')->load($userId);
+        $user = Mage::getModel('admin/user')->load($userId);
         $user->setPassword(Mage::helper('hackathon_emailpreview')->__('[yourpasswordhere]'));
         $templateParams->setUser($user);
 
