@@ -5,6 +5,9 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
 
+    const TEST_TYPE_PER_DATABASE_TEMPLATE = 'database';
+    const TEST_TYPE_PER_USED_TEMPLATE = 'used';
+
     public function __construct()
     {
         $this->_blockGroup = 'hackathon_emailpreview';
@@ -36,10 +39,15 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'class' => 'entry-edit-head',
         ));
 
+        $fieldset->addField('testType', 'hidden', array(
+            'name' => 'testType',
+            'value' => self::TEST_TYPE_PER_DATABASE_TEMPLATE
+        ));
+
         $templateId = Mage::app()->getRequest()->getParam('id', false);
+
         $fieldset->addField('templateId', 'hidden', array(
             'name' => 'templateId',
-            'label' => $helper->__('Template Type'),
             'value' => $templateId
         ));
 
@@ -52,6 +60,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         $entityTemplateName = 'invoice';
         $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
             'name' => "{$entityTemplateName}IncrementId",
+
             'label' => $helper->__('Increment ID'),
             'values'    => $this->modelOptions('sales/order_invoice', $entityTemplateName)
         ));
@@ -68,6 +77,10 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         $entityTemplateName = 'shipment';
         $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_shipment');
 
+        $fieldset->addField('userId', 'text', array(
+            'name' => 'userId',
+            'label' => $helper->__('User ID'),
+        ));
 
         $fieldset->addField('customerId', 'select', array(
             'name' => 'customerId',
@@ -102,6 +115,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'label' => $helper->__('From Email'),
         ));
 
+        $fieldset->addField('fromTelephone', 'text', array(
+            'name' => 'fromTelephone',
+            'label' => $helper->__('From Telephone'),
+        ));
+
         $fieldset->addField('toName', 'text', array(
             'name' => 'toName',
             'label' => $helper->__('To Name'),
@@ -116,10 +134,12 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'name' => 'message',
             'label' => $helper->__('Message'),
         ));
+
         $fieldset->addField('productSku', 'text', array(
             'name' => 'productSku',
             'label' => $helper->__('Product SKU'),
         ));
+
         $fieldset->addField('wishlistId', 'text', array(
             'name' => 'wishlistId',
             'label' => $helper->__('Wishlist ID'),
@@ -130,39 +150,40 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'class' => 'scalable form-button',
             'value' => $helper->__('Preview with Data'),
         ));
+
         $this->setChild('form_after', Mage::app()->getLayout()
-            ->createBlock('adminhtml/widget_form_element_dependence')
-            ->addFieldMap($templateTypeField->getHtmlId(), $templateTypeField->getName())
-            ->addFieldMap($incrementFields['invoice']->getHtmlId(), $incrementFields['invoice']->getName())
-            ->addFieldMap($incrementFields['rma']->getHtmlId(), $incrementFields['rma']->getName())
-            ->addFieldMap($incrementFields['creditmemo']->getHtmlId(), $incrementFields['creditmemo']->getName())
-            ->addFieldMap($incrementFields['order']->getHtmlId(), $incrementFields['order']->getName())
-            ->addFieldMap($incrementFields['shipment']->getHtmlId(), $incrementFields['shipment']->getName())
-            ->addFieldDependence(
-                $incrementFields['invoice']->getName(),
-                $templateTypeField->getName(),
-                'test_sales_order_invoice_email_template'
-            )
-            ->addFieldDependence(
-                $incrementFields['rma']->getName(),
-                $templateTypeField->getName(),
-                'test_rma_new_email_template'
-            )
-            ->addFieldDependence(
-                $incrementFields['creditmemo']->getName(),
-                $templateTypeField->getName(),
-                'test_sales_order_creditmemo_email_template'
-            )
-            ->addFieldDependence(
-                $incrementFields['order']->getName(),
-                $templateTypeField->getName(),
-                'test_sales_order_email_template'
-            )
-            ->addFieldDependence(
-                $incrementFields['shipment']->getName(),
-                $templateTypeField->getName(),
-                'test_sales_order_shipment_email_template'
-            )
+              ->createBlock('adminhtml/widget_form_element_dependence')
+              ->addFieldMap($templateTypeField->getHtmlId(), $templateTypeField->getName())
+              ->addFieldMap($incrementFields['invoice']->getHtmlId(), $incrementFields['invoice']->getName())
+              ->addFieldMap($incrementFields['rma']->getHtmlId(), $incrementFields['rma']->getName())
+              ->addFieldMap($incrementFields['creditmemo']->getHtmlId(), $incrementFields['creditmemo']->getName())
+              ->addFieldMap($incrementFields['order']->getHtmlId(), $incrementFields['order']->getName())
+              ->addFieldMap($incrementFields['shipment']->getHtmlId(), $incrementFields['shipment']->getName())
+              ->addFieldDependence(
+                  $incrementFields['invoice']->getName(),
+                  $templateTypeField->getName(),
+                  'test_sales_order_invoice_email_template'
+              )
+              ->addFieldDependence(
+                  $incrementFields['rma']->getName(),
+                  $templateTypeField->getName(),
+                  'test_rma_new_email_template'
+              )
+              ->addFieldDependence(
+                  $incrementFields['creditmemo']->getName(),
+                  $templateTypeField->getName(),
+                  'test_sales_order_creditmemo_email_template'
+              )
+              ->addFieldDependence(
+                  $incrementFields['order']->getName(),
+                  $templateTypeField->getName(),
+                  'test_sales_order_email_template'
+              )
+              ->addFieldDependence(
+                  $incrementFields['shipment']->getName(),
+                  $templateTypeField->getName(),
+                  'test_sales_order_shipment_email_template'
+              )
         );
         if (Mage::registry('hackathon_emailpreview')) {
             $form->setValues(Mage::registry('hackathon_emailpreview')->getData());

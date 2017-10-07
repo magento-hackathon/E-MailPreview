@@ -15,8 +15,19 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_PreviewContent extends Mage_A
 
         $previewModel = Mage::getModel('hackathon_emailpreview/emailPreview');
 
-        $templateId = $this->getRequest()->getParam('templateId');
-        $templateType = $this->getRequest()->getParam('templateType');
+        if($this->getRequest()->getParam('testType') == Hackathon_EmailPreview_Block_Adminhtml_Email_Preview::TEST_TYPE_PER_DATABASE_TEMPLATE) {
+            $templateId = $this->getRequest()->getParam('templateId');
+            $templateType = $this->getRequest()->getParam('templateType');
+        }
+        else {
+            $configNode = Mage::app()->getConfig()->getNode(
+                Hackathon_EmailPreview_Model_Source_Templatetypes::XML_PATH_TEMPLATETYPES.'/'.$this->getRequest()->getParam('templateType'));
+
+            $templateId = Mage::getStoreConfig((string) $configNode->configpath);
+
+            $templateType =  (string) Mage::app()->getConfig()->getNode(
+                Hackathon_EmailPreview_Model_Source_Testtypes::XML_PATH_TESTTYPES.'/'.$configNode->testtype.'/type');
+        }
 
         $templateParams = new Varien_Object();
         $templateParams->setRequestParams($this->getRequest()->getParams());
@@ -32,7 +43,9 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_PreviewContent extends Mage_A
         $storeId = $templateParams->getStoreId();
         $templateParams->setStore(Mage::app()->getStore($storeId));
 
-        $html = $previewModel->renderEmail($templateId, $templateParams->getData());
+        $recipient = $this->getRequest()->getParam('testRecipient');
+
+        $html = $previewModel->renderEmail($templateId, $templateParams->getData(), $recipient);
 
         Mage::app()->getTranslator()->init('frontend', false);
         $appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);

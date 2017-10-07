@@ -15,9 +15,13 @@
         {
             "name": "Tobias Hille",
             "email": "tobihille@googlemail.com"
+        },
+        {
+            "name": "Wilfried Wolf",
+            "email": "wilfried.wolf@sandstein.de"
         }
     ],
     "suggest": {
-    "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency"
-  }
+        "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency"
+    }
 }

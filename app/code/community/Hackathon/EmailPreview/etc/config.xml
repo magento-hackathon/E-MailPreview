@@ -1,127 +1,337 @@
 <?xml version="1.0"?>
 <config>
-  <modules>
-    <Hackathon_EmailPreview>
-      <version>1.0.0</version>
-    </Hackathon_EmailPreview>
-  </modules>
-  <global>
-    <blocks>
-      <hackathon_emailpreview>
-        <class>Hackathon_EmailPreview_Block</class>
-      </hackathon_emailpreview>
-    </blocks>
-    <models>
-      <hackathon_emailpreview>
-        <class>Hackathon_EmailPreview_Model</class>
-      </hackathon_emailpreview>
-    </models>
-    <helpers>
-      <hackathon_emailpreview>
-        <class>Hackathon_EmailPreview_Helper</class>
-      </hackathon_emailpreview>
-    </helpers>
-    <email>
-        <testtypes>
-            <sendfriend>
-                <name>Send product to a friend</name>
-                <type>test_sendfriend_email_template</type>
-            </sendfriend>
-            <newsletter_confirm>
-                <name>Confirm newsletter</name>
-                <type>test_newsleter_subscribe_email_template</type>
-            </newsletter_confirm>
-            <newsletter_subscribe_success>
-                <name>Newsletter subscribe success</name>
-                <type>test_newsletter_subscribe_success_email_template</type>
-            </newsletter_subscribe_success>
-            <newsletter_unsubscribe_success>
-                <name>Newsletter unsubscribe success</name>
-                <type>test_newsletter_unsubscribe_success_email_template</type>
-            </newsletter_unsubscribe_success>
-            <sales_order_new>
-                <name>New order</name>
-                <type>test_sales_order_email_template</type>
-            </sales_order_new>
-            <sales_order_update>
-                <name>Update order</name>
-                <type>test_sales_order_update_email_template</type>
-            </sales_order_update>
-            <sales_invoice_new>
-                <name>New invoice</name>
-                <type>test_sales_order_invoice_email_template</type>
-            </sales_invoice_new>
-            <sales_invoice_update>
-                <name>Update invoice</name>
-                <type>test_sales_order_invoice_update_email_template</type>
-            </sales_invoice_update>
-            <sales_shipment_new>
-                <name>New shipment</name>
-                <type>test_sales_order_shipment_email_template</type>
-            </sales_shipment_new>
-            <sales_shipment_update>
-                <name>Update shipment</name>
-                <type>test_sales_order_shipment_update_email_template</type>
-            </sales_shipment_update>
-            <sales_creditmemo_new>
-                <name>New creditmemo</name>
-                <type>test_sales_order_creditmemo_email_template</type>
-            </sales_creditmemo_new>
-            <sales_creditmemo_update>
-                <name>Update creditmemo</name>
-                <type>test_sales_order_creditmemo_update_email_template</type>
-            </sales_creditmemo_update>
-            <account_new>
-                <name>New account</name>
-                <type>test_new_account_email_template</type>
-            </account_new>
-            <account_confirmation_key>
-                <name>Account confirmation key</name>
-                <type>test_new_account_confirmation_key_email_template</type>
-            </account_confirmation_key>
-            <account_confirmed>
-                <name>Account confirmed</name>
-                <type>test_new_account_confirmed_email_template</type>
-            </account_confirmed>
-            <password_forgot>
-                <name>Forgot password</name>
-                <type>test_forgot_password_email_template</type>
-            </password_forgot>
-            <password_remind>
-                <name>Password reminder</name>
-                <type>test_remind_password_email_template</type>
-            </password_remind>
-            <wishlist_share>
-                <name>Share wishlist</name>
-                <type>test_share_wishlist_email_template</type>
-            </wishlist_share>
-            <sitemap_generate_warnings>
-                <name>Sitemap generate warnings</name>
-                <type>test_sitemap_generate_warnings_email_template</type>
-            </sitemap_generate_warnings>
-            <token_status_change>
-                <name>Token status change</name>
-                <type>test_token_status_change_email_template</type>
-            </token_status_change>
-            <rma_new>
-                <name>New RMA Request</name>
-                <type>test_rma_new_email_template</type>
-            </rma_new>
-            <rma_auth>
-                <name>RMA Request Authorization</name>
-                <type>test_rma_auth_email_template</type>
-            </rma_auth>
-        </testtypes>
-    </email>
-    <!--
-        <resources>
-            <hackathon_emailpreview_setup>
-                <setup>
-                    <module>Hackathon_EmailPreview</module>
-                </setup>
-            </hackathon_emailpreview_setup>
-        </resources>
-        -->
+    <modules>
+        <Hackathon_EmailPreview>
+            <version>1.0.0</version>
+        </Hackathon_EmailPreview>
+    </modules>
+    <global>
+        <blocks>
+            <hackathon_emailpreview>
+                <class>Hackathon_EmailPreview_Block</class>
+            </hackathon_emailpreview>
+        </blocks>
+        <models>
+            <hackathon_emailpreview>
+                <class>Hackathon_EmailPreview_Model</class>
+            </hackathon_emailpreview>
+        </models>
+        <helpers>
+            <hackathon_emailpreview>
+                <class>Hackathon_EmailPreview_Helper</class>
+            </hackathon_emailpreview>
+        </helpers>
+        <email>
+            <testtypes>
+                <sendfriend>
+                    <name>Send product to a friend</name>
+                    <type>test_sendfriend_email_template</type>
+                </sendfriend>
+                <newsletter_confirm>
+                    <name>Confirm newsletter</name>
+                    <type>test_newsletter_subscribe_email_template</type>
+                </newsletter_confirm>
+                <newsletter_subscribe_success>
+                    <name>Newsletter subscribe success</name>
+                    <type>test_newsletter_subscribe_success_email_template</type>>
+                </newsletter_subscribe_success>
+                <newsletter_unsubscribe_success>
+                    <name>Newsletter unsubscribe success</name>
+                    <type>test_newsletter_unsubscribe_success_email_template</type>
+                </newsletter_unsubscribe_success>
+                <sales_order_new>
+                    <name>New order</name>
+                    <type>test_sales_order_email_template</type>
+                </sales_order_new>
+                <sales_order_update>
+                    <name>Update order</name>
+                    <type>test_sales_order_update_email_template</type>
+                </sales_order_update>
+                <sales_invoice_new>
+                    <name>New invoice</name>
+                    <type>test_sales_order_invoice_email_template</type>
+                </sales_invoice_new>
+                <sales_invoice_update>
+                    <name>Update invoice</name>
+                    <type>test_sales_order_invoice_update_email_template</type>
+                </sales_invoice_update>
+                <sales_shipment_new>
+                    <name>New shipment</name>
+                    <type>test_sales_order_shipment_email_template</type>
+                </sales_shipment_new>
+                <sales_shipment_update>
+                    <name>Update shipment</name>
+                    <type>test_sales_order_shipment_update_email_template</type>
+                </sales_shipment_update>
+                <sales_creditmemo_new>
+                    <name>New creditmemo</name>
+                    <type>test_sales_order_creditmemo_email_template</type>
+                </sales_creditmemo_new>
+                <sales_creditmemo_update>
+                    <name>Update creditmemo</name>
+                    <type>test_sales_order_creditmemo_update_email_template</type>
+                </sales_creditmemo_update>
+                <account_new>
+                    <name>New account</name>
+                    <type>test_new_account_email_template</type>
+                </account_new>
+                <account_confirmation_key>
+                    <name>Account confirmation key</name>
+                    <type>test_new_account_confirmation_key_email_template</type>
+                </account_confirmation_key>
+                <account_confirmed>
+                    <name>Account confirmed</name>
+                    <type>test_new_account_confirmed_email_template</type>
+                </account_confirmed>
+                <password_forgot>
+                    <name>Forgot password</name>
+                    <type>test_forgot_password_email_template</type>
+                </password_forgot>
+                <password_remind>
+                    <name>Password reminder</name>
+                    <type>test_remind_password_email_template</type>
+                </password_remind>
+                <account_changed>
+                    <name>Account changed</name>
+                    <type>test_account_changed_email_template</type>
+                </account_changed>
+                <wishlist_share>
+                    <name>Share wishlist</name>
+                    <type>test_share_wishlist_email_template</type>
+                </wishlist_share>
+                <sitemap_generate_warnings>
+                    <name>Sitemap generate warnings</name>
+                    <type>test_sitemap_generate_warnings_email_template</type>
+                </sitemap_generate_warnings>
+                <token_status_change>
+                    <name>Token status change</name>
+                    <type>test_token_status_change_email_template</type>
+                </token_status_change>
+                <rma_new>
+                    <name>New RMA Request</name>
+                    <type>test_rma_new_email_template</type>
+                </rma_new>
+                <rma_auth>
+                    <name>RMA Request Authorization</name>
+                    <type>test_rma_auth_email_template</type>
+                </rma_auth>
+                <contact>
+                    <name>Contact</name>
+                    <type>test_contact_email_template</type>
+                </contact>
+                <admin_password_forgot>
+                    <name>Forgot Admin Password</name>
+                    <type>test_forgot_admin_password_email_template</type>
+                </admin_password_forgot>
+                <oaut>
+                    <name>Oauth</name>
+                    <type>test_oauth_email_template</type>
+                </oaut>
+                <system_error>
+                    <name>System Errors</name>
+                    <type>test_system_error_email_template</type>
+                </system_error>
+                <product_alert_price>
+                    <name>Product Alert Price</name>
+                    <type>test_product_price_alert_email_template</type>
+                </product_alert_price>
+                <product_alert_stock>
+                    <name>Product Alert Price</name>
+                    <type>test_product_stock_alert_email_template</type>
+                </product_alert_stock>
+            </testtypes>
+            <templates>
+                <contacts_email>
+                    <label>Contact Email</label>
+                    <configpath>contacts/email/email_template</configpath>
+                    <testtype>contact</testtype>
+                </contacts_email>
+                <customer_create_account>
+                    <label>Create Customer Account</label>
+                    <configpath>customer/create_account/email_template</configpath>
+                    <testtype>account_new</testtype>
+                </customer_create_account>
+                <customer_remind_password>
+                    <label>Customer Remind Password</label>
+                    <configpath>customer/password/remind_email_template</configpath>
+                    <testtype>password_remind</testtype>
+                </customer_remind_password>
+                <customer_password_forgot>
+                    <label>Customer Forgot Password</label>
+                    <configpath>customer/password/forgot_email_template</configpath>
+                    <testtype>password_forgot</testtype>
+                </customer_password_forgot>
+                <customer_create_account_confirmation>
+                    <label>Customer Create Account Confirmation</label>
+                    <configpath>customer/create_account/email_confirmation_template</configpath>
+                    <testtype>account_confirmation_key</testtype>
+                </customer_create_account_confirmation>
+                <customer_create_account_confirmed>
+                    <label>Customer Create Account Confirmed</label>
+                    <configpath>customer/create_account/email_confirmed_template</configpath>
+                    <testtype>account_confirmed</testtype>
+                </customer_create_account_confirmed>
+                <customer_changed_account_password_or_email>
+                    <label>Customer Changed Account Password Or Email</label>
+                    <configpath>customer/changed_account/password_or_email_template</configpath>
+                    <testtype>account_changed</testtype>
+                </customer_changed_account_password_or_email>
+                <sales_email_order>
+                    <label>Sales Email Order</label>
+                    <configpath>sales_email/order/template</configpath>
+                    <testtype>sales_order_new</testtype>
+                </sales_email_order>
+                <sales_email_order_guest>
+                    <label>Sales Email Order (Guest)</label>
+                    <configpath>sales_email/order/guest_template</configpath>
+                    <testtype>sales_order_new</testtype>
+                </sales_email_order_guest>
+                <sales_email_order_comment>
+                    <label>Sales Email Order Comment</label>
+                    <configpath>sales_email/order_comment/template</configpath>
+                    <testtype>sales_order_update</testtype>
+                </sales_email_order_comment>
+                <sales_email_order_comment_guest>
+                    <label>Sales Email Order Comment (Guest)</label>
+                    <configpath>sales_email/order_comment/guest_template</configpath>
+                    <testtype>sales_order_update</testtype>
+                </sales_email_order_comment_guest>
+                <sales_email_order_shipment>
+                    <label>Sales Email Order Shipment</label>
+                    <configpath>sales_email/shipment/template</configpath>
+                    <testtype>sales_shipment_new</testtype>
+                </sales_email_order_shipment>
+                <sales_email_order_shipment_guest>
+                    <label>Sales Email Order Shipment (Guest)</label>
+                    <configpath>sales_email/shipment/guest_template</configpath>
+                    <testtype>sales_shipment_new</testtype>
+                </sales_email_order_shipment_guest>
+                <sales_email_order_shipment_comment>
+                    <label>Sales Email Order Shipment Comment</label>
+                    <configpath>sales_email/shipment_comment/template</configpath>
+                    <testtype>sales_shipment_update</testtype>
+                </sales_email_order_shipment_comment>
+                <sales_email_order_shipment_comment_guest>
+                    <label>Sales Email Order Shipment Comment(Guest)</label>
+                    <configpath>sales_email/shipment_comment/guest_template</configpath>
+                    <testtype>sales_shipment_update</testtype>
+                </sales_email_order_shipment_comment_guest>
+                <sales_email_invoice>
+                    <label>Sales Email Invoice</label>
+                    <configpath>sales_email/invoice/template</configpath>
+                    <testtype>sales_invoice_new</testtype>
+                </sales_email_invoice>
+                <sales_email_invoice_guest>
+                    <label>Sales Email Invoice (Guest)</label>
+                    <configpath>sales_email/invoice/guest_template</configpath>
+                    <testtype>sales_invoice_new</testtype>
+                </sales_email_invoice_guest>
+                <sales_email_invoice_comment>
+                    <label>Sales Email Invoice Comment</label>
+                    <configpath>sales_email/invoice_comment/template</configpath>
+                    <testtype>sales_invoice_update</testtype>
+                </sales_email_invoice_comment>
+                <sales_email_invoice_comment_guest>
+                    <label>Sales Email Invoice Comment (Guest)</label>
+                    <configpath>sales_email/invoice_comment/guest_template</configpath>
+                    <testtype>sales_invoice_update</testtype>
+                </sales_email_invoice_comment_guest>
+                <sales_email_creditmemo>
+                    <label>Sales Email Creditmemo</label>
+                    <configpath>sales_email/creditmemo/template</configpath>
+                    <testtype>sales_creditmemo_new</testtype>
+                </sales_email_creditmemo>
+                <sales_email_creditmemo_guest>
+                    <label>Sales Email Creditmemo (Guest)</label>
+                    <configpath>sales_email/creditmemo/guest_template</configpath>
+                    <testtype>sales_creditmemo_new</testtype>
+                </sales_email_creditmemo_guest>
+                <sales_email_creditmemo_comment>
+                    <label>Sales Email Creditmemo Comment</label>
+                    <configpath>sales_email/creditmemo_comment/template</configpath>
+                    <testtype>sales_creditmemo_update</testtype>
+                </sales_email_creditmemo_comment>
+                <sales_email_creditmemo_comment_guest>
+                    <label>Sales Email Creditmemo Comment (Guest)</label>
+                    <configpath>sales_email/creditmemo_comment/guest_template</configpath>
+                    <testtype>sales_creditmemo_update</testtype>
+                </sales_email_creditmemo_comment_guest>
+                <admin_emails_forgot>
+                    <label>Forgot Admin Password</label>
+                    <configpath>admin/emails/forgot_email_template</configpath>
+                    <testtype>admin_password_forgot</testtype>
+                </admin_emails_forgot>
+                <oauth_email>
+                    <label>Oauth Email</label>
+                    <configpath>oauth/email/template</configpath>
+                    <testtype>oauth</testtype>
+                </oauth_email>
+                <sendfriend_email>
+                    <label>Sendfried Email</label>
+                    <configpath>sendfriend/email/template</configpath>
+                    <testtype>sendfriend</testtype>
+                </sendfriend_email>
+                <newsletter_subscription_confirm_email>
+                    <label>Newsletter Subscription Confirm Email</label>
+                    <configpath>newsletter/subscription/confirm_email_template</configpath>
+                    <testtype>newsletter_confirm</testtype>
+                </newsletter_subscription_confirm_email>
+                <newsletter_subscription_success_email>
+                    <label>Newsletter Subscription Success Email</label>
+                    <configpath>newsletter/subscription/success_email_template</configpath>
+                    <testtype>newsletter_subscribe_success</testtype>
+                </newsletter_subscription_success_email>
+                <newsletter_subscription_un_email>
+                    <label>Newsletter Unsubscription Email</label>
+                    <configpath>newsletter/subscription/un_email_template</configpath>
+                    <testtype>newsletter_unsubscribe_success</testtype>
+                </newsletter_subscription_un_email>
+                <catalog_productalert_price_email>
+                    <label>Catalog Productalert Price Email</label>
+                    <configpath>catalog/productalert/email_price_template</configpath>
+                    <testtype>product_alert_price</testtype>
+                </catalog_productalert_price_email>
+                <catalog_productalert_stock_email>
+                    <label>Catalog Productalert Stock Email</label>
+                    <configpath>catalog/productalert/email_stock_template</configpath>
+                    <testtype>product_alert_stock</testtype>
+                </catalog_productalert_stock_email>
+                <system_log_error_email>
+                    <label>System Log Error E-Mail</label>
+                    <configpath>system/log/error_email_template</configpath>
+                    <testtype>system_error</testtype>
+                </system_log_error_email>
+                <catalog_productalert_cron_error_email>
+                    <label>Catalag Productalert Cron Error Email</label>
+                    <configpath>catalog/productalert_cron/error_email_template</configpath>
+                    <testtype>system_error</testtype>
+                </catalog_productalert_cron_error_email>
+                <currency_import_error_email>
+                    <label>Currency Import Error Email</label>
+                    <configpath>currency/import/error_email_template</configpath>
+                    <testtype>system_error</testtype>
+                </currency_import_error_email>
+                <sitemap_generate_error_email>
+                    <label>Sitemap Generate Error Email</label>
+                    <configpath>sitemap/generate/error_email_template</configpath>
+                    <testtype>system_error</testtype>
+                </sitemap_generate_error_email>
+                <wishlist_email>
+                    <label>Whishlist Email</label>
+                    <configpath>wishlist/email/email_template</configpath>
+                    <testtype>wishlist_share</testtype>
+                </wishlist_email>
+            </templates>
+        </email>
+        <!--
+            <resources>
+                <hackathon_emailpreview_setup>
+                    <setup>
+                        <module>Hackathon_EmailPreview</module>
+                    </setup>
+                </hackathon_emailpreview_setup>
+            </resources>
+            -->
         <events>
             <hackathon_emailpreview_render_email_before>
                 <observers>
@@ -181,6 +391,22 @@
                         <class>hackathon_emailpreview/mail_type_rmaNew</class>
                         <method>hackathonEmailpreviewRenderEmailBefore</method>
                     </hackathon_emailpreview_rma_email>
+                    <hackathon_emailpreview_contact>
+                        <class>hackathon_emailpreview/mail_type_contact</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_contact>
+                    <hackathon_emailpreview_admin_password_forgot>
+                        <class>hackathon_emailpreview/mail_type_AdminPasswordEmail</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_admin_password_forgot>
+                    <hackathon_emailpreview_oauth>
+                        <class>hackathon_emailpreview/mail_type_oauth</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_oauth>
+                    <hackathon_emailpreview_system_error_email>
+                        <class>hackathon_emailpreview/mail_type_systemError</class>
+                        <method>hackathonEmailpreviewRenderEmailBefore</method>
+                    </hackathon_emailpreview_system_error_email>
                 </observers>
             </hackathon_emailpreview_render_email_before>
         </events>
@@ -195,14 +421,14 @@
         </layout>
     </frontend>
     <adminhtml>
-      <layout>
-        <updates>
-          <hackathon_emailpreview>
-            <file>hackathon_emailpreview.xml</file>
-          </hackathon_emailpreview>
-        </updates>
-      </layout>
-      <translate>
+        <layout>
+            <updates>
+                <hackathon_emailpreview>
+                    <file>hackathon_emailpreview.xml</file>
+                </hackathon_emailpreview>
+            </updates>
+        </layout>
+        <translate>
             <modules>
                 <hackathon_emailpreview>
                     <files>
@@ -211,6 +437,41 @@
                 </hackathon_emailpreview>
             </modules>
         </translate>
+        <menu>
+            <system>
+                <children>
+                    <tools>
+                        <children>
+                            <hackathon_emailpreview>
+                                <title>Email Preview Tool</title>
+                                <sort_order>60</sort_order>
+                                <action>adminhtml/tool</action>
+                            </hackathon_emailpreview>
+                        </children>
+                    </tools>
+                </children>
+            </system>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <tools>
+                                    <children>
+                                        <hackathon_emailpreview>
+                                            <title>Email Preview Tool</title>
+                                            <sort_order>10</sort_order>
+                                        </hackathon_emailpreview>
+                                    </children>
+                                </tools>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
     </adminhtml>
     <admin>
         <routers>
