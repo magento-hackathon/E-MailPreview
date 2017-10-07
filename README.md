@@ -71,8 +71,16 @@ Contribution
 Any contribution is highly appreciated. The best way to contribute code is to open a
 [pull request on GitHub](https://help.github.com/articles/using-pull-requests).
 
-Developer
+Create pull requests against the `develop` branch.
+
+Developers
 ---------
+
+These are the initial developers from the Hackathon but please also pay
+attention to all the wonderful persons who have
+[contributed](https://github.com/magento-hackathon/E-MailPreview/graphs/contributors)
+afterwards!
+ 
 * Matthias Zeis
 
     [http://www.matthias-zeis.com](http://www.matthias-zeis.com)  
