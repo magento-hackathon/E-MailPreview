@@ -212,7 +212,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
     protected function modelOptions($model = "", $entityTemplateName)
     {
         if ($mageModel = Mage::getModel($model)):
-            return array_map(function ($collectionItem, $entityTemplateName) use ($entityTemplateName) {
+            return array_map(function ($collectionItem) use ($entityTemplateName) {
                 $entityType = ucfirst($entityTemplateName);
                 return [
                     'value' => $collectionItem['increment_id'],
