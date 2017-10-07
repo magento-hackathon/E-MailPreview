@@ -14,12 +14,12 @@ This extension enables the merchants and developers to preview mail templates fr
 
 Requirements
 ------------
-- PHP >= 5.2.0
+- PHP >= 5.3.0
 - Mage_Adminhtml
 
 Compatibility
 -------------
-- Magento CE >= 1.7.0.2 (only tested on this version)
+- Magento CE >= 1.9.3.2 (only tested on this version, might work with others too)
 
 Installation Instructions
 -------------------------
