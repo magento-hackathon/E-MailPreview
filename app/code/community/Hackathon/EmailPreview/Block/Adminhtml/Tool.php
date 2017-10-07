@@ -9,7 +9,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Tool
         parent::__construct();
     }
 
-    protected function _addSpecificFields($fieldset, $helper) {
+    protected function _addSpecificFields($fieldset, $helper, $dependenceBlock) {
 
         $fieldset->addField('testType', 'hidden', array(
             'name' => 'testType',
@@ -21,11 +21,13 @@ class Hackathon_EmailPreview_Block_Adminhtml_Tool
             'label' => $helper->__('Test Recipient'),
         ));
 
-        $fieldset->addField('templateType', 'select', array(
+        $templateTypeField = $fieldset->addField('templateType', 'select', array(
             'name' => 'templateType',
             'options' => Mage::getModel('hackathon_emailpreview/source_templatetypes')->toOptionArray(),
             'label' => $helper->__('Template Type'),
         ));
+
+        return $templateTypeField;
     }
 
 }

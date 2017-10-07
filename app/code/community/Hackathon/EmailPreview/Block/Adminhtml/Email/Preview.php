@@ -39,23 +39,9 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'class' => 'entry-edit-head',
         ));
 
-        $fieldset->addField('testType', 'hidden', array(
-            'name' => 'testType',
-            'value' => self::TEST_TYPE_PER_DATABASE_TEMPLATE
-        ));
+        $dependenceBlock = Mage::app()->getLayout()->createBlock('adminhtml/widget_form_element_dependence');
 
-        $templateId = Mage::app()->getRequest()->getParam('id', false);
-
-        $fieldset->addField('templateId', 'hidden', array(
-            'name' => 'templateId',
-            'value' => $templateId
-        ));
-
-        $templateTypeField = $fieldset->addField('templateType', 'select', array(
-            'name' => 'templateType',
-            'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
-            'label' => $helper->__('Template Type'),
-        ));
+        $templateTypeField = $this->_addSpecificFields($fieldset, $helper, $dependenceBlock);
 
         $entityTemplateName = 'invoice';
         $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
@@ -153,7 +139,6 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'value' => $helper->__('Preview with Data'),
         ));
 
-        $dependenceBlock = Mage::app()->getLayout()->createBlock('adminhtml/widget_form_element_dependence');
         $this->setChild('form_after', $dependenceBlock);
         $dependenceBlock
               ->addFieldMap($templateTypeField->getHtmlId(), $templateTypeField->getName())
@@ -256,6 +241,33 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'label' => $helper->__('Increment ID'),
             'values' => $this->modelOptions($model, $entityTemplateName),
         ));
+    }
+
+    /**
+     * @param $fieldset
+     * @param $helper
+     */
+    protected function _addSpecificFields($fieldset, $helper, $dependenceBlock)
+    {
+        $fieldset->addField('testType', 'hidden', array(
+            'name' => 'testType',
+            'value' => self::TEST_TYPE_PER_DATABASE_TEMPLATE
+        ));
+
+        $templateId = Mage::app()->getRequest()->getParam('id', false);
+
+        $fieldset->addField('templateId', 'hidden', array(
+            'name' => 'templateId',
+            'value' => $templateId
+        ));
+
+        $templateTypeField = $fieldset->addField('templateType', 'select', array(
+            'name' => 'templateType',
+            'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
+            'label' => $helper->__('Template Type'),
+        ));
+
+        return $templateTypeField;
     }
 
 }
