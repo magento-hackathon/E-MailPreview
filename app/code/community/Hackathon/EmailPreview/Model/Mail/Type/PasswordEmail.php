@@ -7,7 +7,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_PasswordEmail
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_PasswordEmail
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {

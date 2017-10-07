@@ -6,7 +6,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_ShareWishlistEmail
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_ShareWishlistEmail
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {
@@ -22,6 +22,9 @@ class Hackathon_EmailPreview_Model_Mail_Type_ShareWishlistEmail
         
         // Create wishlist
         $wishlistId = $requestParams['wishlistId'];
+        /**
+         * @var Mage_Wishlist_Model_Wishlist $wishlist
+         */
         $wishlist = Mage::getModel('wishlist/wishlist')->loadByCustomer($customer);
         
         /*

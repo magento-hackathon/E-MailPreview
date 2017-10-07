@@ -12,6 +12,9 @@ class Hackathon_EmailPreview_Model_EmailPreview
      */
     public function renderEmail($templateId, $templateParams, $recipient = false)
     {
+        /**
+         * @var Mage_Core_Model_App_Emulation $appEmulation
+         */
         $appEmulation = Mage::getSingleton('core/app_emulation');
         $store = $templateParams['store'];
         $storeId = $store->getStoreId();
@@ -34,16 +37,15 @@ class Hackathon_EmailPreview_Model_EmailPreview
             $filter->filter($template->getTemplateText())
         );
 
-        $templateProcessed = $template->getProcessedTemplate($templateParams, true);
+        $templateProcessed = $template->getProcessedTemplate($templateParams);
 
-        if($recipient) {
-
+        if ($recipient) {
             $subject = $template->getProcessedTemplateSubject($templateParams);
             $this->_send($template, $subject, $templateProcessed, $recipient);
         }
 
         if ($template->isPlain()) {
-            $templateProcessed = "<pre>" . htmlspecialchars($templateProcessed) . "</pre>";
+            $templateProcessed = '<pre>' . htmlspecialchars($templateProcessed) . '</pre>';
         }
         
         // Stop store emulation process
@@ -52,7 +54,7 @@ class Hackathon_EmailPreview_Model_EmailPreview
         return $templateProcessed;
     }
 
-    protected function _send($template, $subject, $text, $email)
+    protected function _send(Mage_Core_Model_Email_Template $template, $subject, $text, $email)
     {
 
         $emails = array($email);
@@ -70,7 +72,7 @@ class Hackathon_EmailPreview_Model_EmailPreview
         if ($template->isPlain()) {
             $mail->setBodyText($text);
         } else {
-            $mail->setBodyHTML($text);
+            $mail->setBodyHtml($text);
         }
 
         $mail->setSubject('=?utf-8?B?' . base64_encode($subject) . '?=');
@@ -78,10 +80,8 @@ class Hackathon_EmailPreview_Model_EmailPreview
 
         try {
             $mail->send();
-            $template->_mail = null;
         }
         catch (Exception $e) {
-            $template->_mail = null;
             Mage::logException($e);
             return false;
         }

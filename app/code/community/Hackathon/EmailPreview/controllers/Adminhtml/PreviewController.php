@@ -1,4 +1,5 @@
 <?php
+
 class Hackathon_EmailPreview_Adminhtml_PreviewController extends Mage_Adminhtml_Controller_Action
 {
     /**

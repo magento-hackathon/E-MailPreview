@@ -4,13 +4,8 @@ class Hackathon_EmailPreview_Block_Adminhtml_Tool
     extends Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
 {
 
-    public function __construct()
+    protected function _addSpecificFields(Varien_Data_Form_Element_Fieldset $fieldset, Hackathon_EmailPreview_Helper_Data $helper)
     {
-        parent::__construct();
-    }
-
-    protected function _addSpecificFields($fieldset, $helper, $dependenceBlock) {
-
         $fieldset->addField('testType', 'hidden', array(
             'name' => 'testType',
             'value' => self::TEST_TYPE_PER_USED_TEMPLATE
@@ -29,5 +24,4 @@ class Hackathon_EmailPreview_Block_Adminhtml_Tool
 
         return $templateTypeField;
     }
-
 }

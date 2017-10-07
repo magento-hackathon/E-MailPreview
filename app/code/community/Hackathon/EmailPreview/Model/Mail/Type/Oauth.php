@@ -6,11 +6,11 @@ class Hackathon_EmailPreview_Model_Mail_Type_Oauth
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_Oauth
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {
-        if (!in_array($observer->getEvent()->getData('templateType'), array(self::TYPE_OAUTH))) {
+        if (self::TYPE_OAUTH !== $observer->getEvent()->getData('templateType')) {
             return $this;
         }
 

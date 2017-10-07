@@ -33,37 +33,37 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         $form->setUseContainer(true);
         $this->setForm($form);
 
+        /**
+         * @var Hackathon_EmailPreview_Helper_Data $helper
+         */
         $helper = Mage::helper('hackathon_emailpreview');
         $fieldset = $form->addFieldset('display', array(
             'legend' => $helper->__('Preview with Data'),
             'class' => 'entry-edit-head',
         ));
 
+        /**
+         * @var Mage_Adminhtml_Block_Widget_Form_Element_Dependence $dependenceBlock
+         */
         $dependenceBlock = Mage::app()->getLayout()->createBlock('adminhtml/widget_form_element_dependence');
 
-        $templateTypeField = $this->_addSpecificFields($fieldset, $helper, $dependenceBlock);
+        $templateTypeField = $this->_addSpecificFields($fieldset, $helper);
 
-        $entityTemplateName = 'invoice';
-        $incrementFields[$entityTemplateName] = $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
-            'name' => "{$entityTemplateName}IncrementId",
-
+        $incrementFields['invoice'] = $fieldset->addField('invoiceIncrementId', 'select', array(
+            'name' => 'invoiceIncrementId',
             'label' => $helper->__('Increment ID'),
-            'values'    => $this->modelOptions('sales/order_invoice', $entityTemplateName)
+            'values'    => $this->modelOptions('sales/order_invoice', 'invoice')
         ));
 
         if (Mage::getEdition() === Mage::EDITION_ENTERPRISE) {
-            $entityTemplateName = 'rma';
-            $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'enterprise_rma/rma');
+            $incrementFields['rma'] = $this->addIncrementIdField($fieldset, 'rma', $helper, 'enterprise_rma/rma');
         }
 
-        $entityTemplateName = 'creditmemo';
-        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_creditmemo');
+        $incrementFields['creditmemo'] = $this->addIncrementIdField($fieldset, 'creditmemo', $helper, 'sales/order_creditmemo');
 
-        $entityTemplateName = 'order';
-        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order');
+        $incrementFields['order'] = $this->addIncrementIdField($fieldset, 'order', $helper, 'sales/order');
 
-        $entityTemplateName = 'shipment';
-        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_shipment');
+        $incrementFields['shipment'] = $this->addIncrementIdField($fieldset, 'shipment', $helper, 'sales/order_shipment');
 
         $fieldset->addField('userId', 'text', array(
             'name' => 'userId',
@@ -73,11 +73,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
         $fieldset->addField('customerId', 'select', array(
             'name' => 'customerId',
             'label' => $helper->__('Customer ID'),
-            'values'    => array_map(function($customer){
-                return [
+            'values' => array_map(function($customer) {
+                return array(
                     'value'=>$customer['entity_id'],
                     'label'=>"{$customer['email']} ({$customer['entity_id']})",
-                ];
+                );
             }, Mage::getModel('customer/customer')->getCollection()->setPageSize(100)->setCurPage(1)->getData()),
         ));
 
@@ -186,12 +186,12 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
 
     public function getTabLabel()
     {
-        return $this->helper("hackathon_emailpreview")->__("Preview Email");
+        return $this->helper('hackathon_emailpreview')->__('Preview Email');
     }
 
     public function getTabTitle()
     {
-        return $this->helper("hackathon_emailpreview")->__("Preview Email");
+        return $this->helper('hackathon_emailpreview')->__('Preview Email');
     }
 
     public function canShowTab()
@@ -209,32 +209,32 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
      * @param $entityTemplateName
      * @return array
      */
-    protected function modelOptions($model = "", $entityTemplateName)
+    protected function modelOptions($model = '', $entityTemplateName)
     {
         if ($mageModel = Mage::getModel($model)):
             return array_map(function ($collectionItem) use ($entityTemplateName) {
                 $entityType = ucfirst($entityTemplateName);
-                return [
+                return array(
                     'value' => $collectionItem['increment_id'],
                     'label' => "$entityType #{$collectionItem['increment_id']}",
-                ];
+                );
             }, $mageModel->getCollection()->setPageSize(100)->setCurPage(1)->getData());
         else:
-            return [
+            return array(
                 'value' => null,
                 'label' => Mage::helper('hackathon_emailpreview')->__('Could not access increment IDs for this data type.'),
-            ];
+            );
         endif;
     }
 
     /**
-     * @param $fieldset
-     * @param $entityTemplateName
-     * @param $helper
+     * @param Varien_Data_Form_Element_Fieldset $fieldset
+     * @param string $entityTemplateName
+     * @param Mage_Core_Helper_Abstract $helper
      * @param $model
-     * @return mixed
+     * @return Varien_Data_Form_Element_Abstract
      */
-    protected function addIncrementIdField($fieldset, $entityTemplateName, $helper, $model)
+    protected function addIncrementIdField(Varien_Data_Form_Element_Fieldset $fieldset, $entityTemplateName, Mage_Core_Helper_Abstract $helper, $model)
     {
         return $fieldset->addField("{$entityTemplateName}IncrementId", 'select', array(
             'name' => "{$entityTemplateName}IncrementId",
@@ -244,10 +244,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
     }
 
     /**
-     * @param $fieldset
-     * @param $helper
+     * @param Varien_Data_Form_Element_Fieldset $fieldset
+     * @param Hackathon_EmailPreview_Helper_Data $helper
+     * @return Varien_Data_Form_Element_Abstract
      */
-    protected function _addSpecificFields($fieldset, $helper, $dependenceBlock)
+    protected function _addSpecificFields(Varien_Data_Form_Element_Fieldset $fieldset, Hackathon_EmailPreview_Helper_Data $helper)
     {
         $fieldset->addField('testType', 'hidden', array(
             'name' => 'testType',

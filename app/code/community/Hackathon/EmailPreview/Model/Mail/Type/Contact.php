@@ -5,12 +5,11 @@ class Hackathon_EmailPreview_Model_Mail_Type_Contact
     const TYPE_CONTACT = 'test_contact_email_template';
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_Contact
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {
-        if (!in_array($observer->getEvent()->getData('templateType'), 
-            array(self::TYPE_CONTACT))) {
+        if (self::TYPE_CONTACT !== $observer->getEvent()->getData('templateType')) {
             return $this;
         }
 

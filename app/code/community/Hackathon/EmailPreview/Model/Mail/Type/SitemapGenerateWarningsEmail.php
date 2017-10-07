@@ -6,7 +6,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_SitemapGenerateWarningsEmail
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_SitemapGenerateWarningsEmail
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {

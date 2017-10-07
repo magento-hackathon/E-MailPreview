@@ -5,6 +5,7 @@ abstract class Hackathon_EmailPreview_Model_Mail_Type_Sales_Abstract
     /**
      * @param Mage_Sales_Model_Order $order
      * @return string
+     * @throws Exception
      */
     protected function _getPaymentBlockHtmlFrom(Mage_Sales_Model_Order $order)
     {
@@ -27,20 +28,19 @@ abstract class Hackathon_EmailPreview_Model_Mail_Type_Sales_Abstract
      * Prepare the parameters for the email
      * 
      * @param Varien_Event_Observer $observer
-     * @param type $modelName
-     * @param type $entityTemplateName
+     * @param string $modelName
+     * @param string $entityTemplateName
      * @return array($entity, $templateParams)
      */
     protected function _prepareParams(Varien_Event_Observer $observer, $modelName, $entityTemplateName = null)
     {
         $templateParams = $observer->getEvent()->getData('templateParams');
         $requestParams = $templateParams->getRequestParams();
-        //die($entityTemplateName);
-        if($entityTemplateName == null):
-            $incrementId = $requestParams["orderIncrementId"];
-        else:
+        if($entityTemplateName === null) {
+            $incrementId = $requestParams['orderIncrementId'];
+        } else {
             $incrementId = $requestParams["{$entityTemplateName}IncrementId"];
-        endif;
+        }
 
         $entity = $this->_loadEntityByIncrementId($modelName, $incrementId);
         
@@ -57,7 +57,7 @@ abstract class Hackathon_EmailPreview_Model_Mail_Type_Sales_Abstract
             $templateParams->setComment($requestParams['comment']);
         }
         
-        if (!empty($entityTemplateName)) {
+        if ($entityTemplateName !== null && $entityTemplateName !== '') {
             $templateParams->setData($entityTemplateName, $entity);
         }
         
@@ -79,8 +79,8 @@ abstract class Hackathon_EmailPreview_Model_Mail_Type_Sales_Abstract
     {
         if ($entity instanceof Mage_Sales_Model_Order) {
             return $entity;
-        } else {
-            return $entity->getOrder();
         }
+
+        return $entity->getOrder();
     }
 }

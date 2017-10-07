@@ -7,7 +7,7 @@ class Hackathon_EmailPreview_Model_Mail_Type_RmaNew extends Hackathon_EmailPrevi
 
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_Sales_Abstract
+     * @return Hackathon_EmailPreview_Model_Mail_Type_RmaNew
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {

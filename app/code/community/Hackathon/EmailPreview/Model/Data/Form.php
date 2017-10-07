@@ -3,7 +3,8 @@
 class Hackathon_EmailPreview_Model_Data_Form extends Varien_Data_Form
 {
     /**
-     * Return allowed HTML form attributes
+     * Returns allowed HTML form attributes.
+     *
      * @return array
      */
     public function getHtmlAttributes()

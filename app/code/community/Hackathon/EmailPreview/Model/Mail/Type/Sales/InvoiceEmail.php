@@ -8,12 +8,11 @@ class Hackathon_EmailPreview_Model_Mail_Type_Sales_InvoiceEmail extends Hackatho
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_Sales_NewInvoiceEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_Sales_InvoiceEmail
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {
-        if ($observer->getEvent()->getData('templateType') !== self::TYPE_NEW &&
-                $observer->getEvent()->getData('templateType') !== self::TYPE_UPDATE) {
+        if (!in_array($observer->getEvent()->getData('templateType'), array(self::TYPE_NEW, self::TYPE_UPDATE))) {
             return $this;
         }
 

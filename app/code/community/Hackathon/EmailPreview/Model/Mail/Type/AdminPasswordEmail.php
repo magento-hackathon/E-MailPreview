@@ -6,11 +6,11 @@ class Hackathon_EmailPreview_Model_Mail_Type_AdminPasswordEmail
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_AdminPasswordEmail
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {
-        if (!in_array($observer->getEvent()->getData('templateType'), array(self::TYPE_FORGOT_ADMIN_PASSWORD))) {
+        if (self::TYPE_FORGOT_ADMIN_PASSWORD !== $observer->getEvent()->getData('templateType')) {
             return $this;
         }
 

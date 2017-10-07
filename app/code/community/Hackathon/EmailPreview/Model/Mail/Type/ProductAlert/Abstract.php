@@ -18,7 +18,7 @@ abstract class Hackathon_EmailPreview_Model_Mail_Type_ProductAlert_Abstract
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_ProductAlert_Abstract
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {

@@ -8,23 +8,17 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Edit
     public function _prepareLayout()
     {
         parent::_prepareLayout();
-                
         $this->unsetChild('preview_button');
-    }
-    
-    public function __construct()
-    {
-        parent::__construct();
     }
 
     public function getTabLabel()
     {
-        return $this->helper("hackathon_emailpreview")->__("Edit Email");
+        return $this->helper('hackathon_emailpreview')->__('Edit Email');
     }
 
     public function getTabTitle()
     {
-        return $this->helper("hackathon_emailpreview")->__("Edit Email");
+        return $this->helper('hackathon_emailpreview')->__('Edit Email');
     }
 
     public function canShowTab()

@@ -6,11 +6,11 @@ class Hackathon_EmailPreview_Model_Mail_Type_Sendfriend
     
     /**
      * @param Varien_Event_Observer $observer
-     * @return Hackathon_EmailPreview_Model_Mail_Type_OrderEmail
+     * @return Hackathon_EmailPreview_Model_Mail_Type_Sendfriend
      */
     public function hackathonEmailpreviewRenderEmailBefore(Varien_Event_Observer $observer)
     {
-        if (!in_array($observer->getEvent()->getData('templateType'), array(self::TYPE_SENDFRIEND))) {
+        if (self::TYPE_SENDFRIEND !== $observer->getEvent()->getData('templateType')) {
             return $this;
         }
         
