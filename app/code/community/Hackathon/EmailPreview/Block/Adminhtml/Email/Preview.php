@@ -65,8 +65,10 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'values'    => $this->modelOptions('sales/order_invoice', $entityTemplateName)
         ));
 
-        $entityTemplateName = 'rma';
-        $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'enterprise_rma/rma');
+        if (Mage::getEdition() === Mage::EDITION_ENTERPRISE) {
+            $entityTemplateName = 'rma';
+            $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'enterprise_rma/rma');
+        }
 
         $entityTemplateName = 'creditmemo';
         $incrementFields[$entityTemplateName] = $this->addIncrementIdField($fieldset, $entityTemplateName, $helper, 'sales/order_creditmemo');
@@ -151,11 +153,11 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'value' => $helper->__('Preview with Data'),
         ));
 
-        $this->setChild('form_after', Mage::app()->getLayout()
-              ->createBlock('adminhtml/widget_form_element_dependence')
+        $dependenceBlock = Mage::app()->getLayout()->createBlock('adminhtml/widget_form_element_dependence');
+        $this->setChild('form_after', $dependenceBlock);
+        $dependenceBlock
               ->addFieldMap($templateTypeField->getHtmlId(), $templateTypeField->getName())
               ->addFieldMap($incrementFields['invoice']->getHtmlId(), $incrementFields['invoice']->getName())
-              ->addFieldMap($incrementFields['rma']->getHtmlId(), $incrementFields['rma']->getName())
               ->addFieldMap($incrementFields['creditmemo']->getHtmlId(), $incrementFields['creditmemo']->getName())
               ->addFieldMap($incrementFields['order']->getHtmlId(), $incrementFields['order']->getName())
               ->addFieldMap($incrementFields['shipment']->getHtmlId(), $incrementFields['shipment']->getName())
@@ -163,11 +165,6 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
                   $incrementFields['invoice']->getName(),
                   $templateTypeField->getName(),
                   'test_sales_order_invoice_email_template'
-              )
-              ->addFieldDependence(
-                  $incrementFields['rma']->getName(),
-                  $templateTypeField->getName(),
-                  'test_rma_new_email_template'
               )
               ->addFieldDependence(
                   $incrementFields['creditmemo']->getName(),
@@ -183,8 +180,18 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
                   $incrementFields['shipment']->getName(),
                   $templateTypeField->getName(),
                   'test_sales_order_shipment_email_template'
-              )
-        );
+              );
+
+        if (Mage::getEdition() === Mage::EDITION_ENTERPRISE) {
+            $dependenceBlock
+                ->addFieldMap($incrementFields['rma']->getHtmlId(), $incrementFields['rma']->getName())
+                ->addFieldDependence(
+                    $incrementFields['rma']->getName(),
+                    $templateTypeField->getName(),
+                    'test_rma_new_email_template'
+                );
+        }
+
         if (Mage::registry('hackathon_emailpreview')) {
             $form->setValues(Mage::registry('hackathon_emailpreview')->getData());
         }
