@@ -323,15 +323,6 @@
                 </wishlist_email>
             </templates>
         </email>
-        <!--
-            <resources>
-                <hackathon_emailpreview_setup>
-                    <setup>
-                        <module>Hackathon_EmailPreview</module>
-                    </setup>
-                </hackathon_emailpreview_setup>
-            </resources>
-            -->
         <events>
             <hackathon_emailpreview_render_email_before>
                 <observers>
@@ -484,18 +475,4 @@
             </adminhtml>
         </routers>
     </admin>
-    <!--
-    <crontab>
-        <jobs>
-            <hackathon_emailpreview_cron>
-                <schedule>
-                    <cron_expr>0,45 * * * *</cron_expr>
-                </schedule>
-                <run>
-                    <model>hackathon_emailpreview/observer::methodName</model>
-                </run>
-            </hackathon_emailpreview_cron>
-        </jobs> 
-    </crontab>
-    -->
 </config>
