@@ -47,7 +47,8 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
          */
         $dependenceBlock = Mage::app()->getLayout()->createBlock('adminhtml/widget_form_element_dependence');
 
-        $templateTypeField = $this->_addSpecificFields($fieldset, $helper);
+        $this->_addSpecificFields($fieldset, $helper);
+        $templateTypeField = $this->_addTemplateTypeField($fieldset, $helper);
 
         $incrementFields['invoice'] = $fieldset->addField('invoiceIncrementId', 'select', array(
             'name' => 'invoiceIncrementId',
@@ -246,7 +247,7 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
     /**
      * @param Varien_Data_Form_Element_Fieldset $fieldset
      * @param Hackathon_EmailPreview_Helper_Data $helper
-     * @return Varien_Data_Form_Element_Abstract
+     * @return void
      */
     protected function _addSpecificFields(Varien_Data_Form_Element_Fieldset $fieldset, Hackathon_EmailPreview_Helper_Data $helper)
     {
@@ -261,14 +262,19 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
             'name' => 'templateId',
             'value' => $templateId
         ));
+    }
 
-        $templateTypeField = $fieldset->addField('templateType', 'select', array(
+    /**
+     * @param Varien_Data_Form_Element_Fieldset $fieldset
+     * @param Hackathon_EmailPreview_Helper_Data $helper
+     * @return Varien_Data_Form_Element_Abstract
+     */
+    protected function _addTemplateTypeField(Varien_Data_Form_Element_Fieldset $fieldset, Hackathon_EmailPreview_Helper_Data $helper)
+    {
+        return $fieldset->addField('templateType', 'select', array(
             'name' => 'templateType',
             'options' => Mage::getModel('hackathon_emailpreview/source_testtypes')->toOptionArray(),
             'label' => $helper->__('Template Type'),
         ));
-
-        return $templateTypeField;
     }
-
 }
