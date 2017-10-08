@@ -10,7 +10,7 @@ Added / improved:
   ones or ones from Yireo-E-Mail-Override) in `System > Tools > Email Preview
   Tool` (fixes #19).
 * Order / Invoice / ... Increment IDs and Customer IDs can be selected in a dropdown
-  from real existing entities (fixes #15, 16).
+  from real existing entities (fixes #15, #16).
 * Previews are opened in a new browser window/tab (fixes #1).
 
 Fixed:
