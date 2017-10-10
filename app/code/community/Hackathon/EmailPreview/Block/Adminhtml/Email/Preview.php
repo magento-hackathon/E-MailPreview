@@ -150,22 +150,46 @@ class Hackathon_EmailPreview_Block_Adminhtml_Email_Preview
               ->addFieldDependence(
                   $incrementFields['invoice']->getName(),
                   $templateTypeField->getName(),
-                  'test_sales_order_invoice_email_template'
+                  array(
+                      'sales_email_invoice',
+                      'sales_email_invoice_comment',
+                      'sales_email_invoice_comment_guest',
+                      'sales_email_invoice_guest',
+                      'test_sales_order_invoice_email_template',
+                  )
               )
               ->addFieldDependence(
                   $incrementFields['creditmemo']->getName(),
                   $templateTypeField->getName(),
-                  'test_sales_order_creditmemo_email_template'
+                  array(
+                      'sales_email_creditmemo',
+                      'sales_email_creditmemo_comment',
+                      'sales_email_creditmemo_comment_guest',
+                      'sales_email_creditmemo_guest',
+                      'test_sales_order_creditmemo_email_template',
+                  )
               )
               ->addFieldDependence(
                   $incrementFields['order']->getName(),
                   $templateTypeField->getName(),
-                  'test_sales_order_email_template'
+                  array(
+                      'sales_email_order',
+                      'sales_email_order_comment',
+                      'sales_email_order_comment_guest',
+                      'sales_email_order_guest',
+                      'test_sales_order_email_template',
+                  )
               )
               ->addFieldDependence(
                   $incrementFields['shipment']->getName(),
                   $templateTypeField->getName(),
-                  'test_sales_order_shipment_email_template'
+                  array(
+                      'sales_email_order_shipment',
+                      'sales_email_order_shipment_comment',
+                      'sales_email_order_shipment_comment_guest',
+                      'sales_email_order_shipment_guest',
+                      'test_sales_order_shipment_email_template'
+                  )
               );
 
         if (Mage::getEdition() === Mage::EDITION_ENTERPRISE) {
