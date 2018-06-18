@@ -8,6 +8,16 @@
 class Hackathon_EmailPreview_Adminhtml_ToolController extends Mage_Adminhtml_Controller_Action
 {
     /**
+     * Check permissions
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('system/tools/hackathon_emailpreview');
+    }
+
+    /**
      * Start here to test the templates actually set in your shop
      */
     public function indexAction()
